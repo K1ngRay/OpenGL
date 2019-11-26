@@ -1,0 +1,6 @@
+﻿  Building Custom Rule D:/OpenGL/GLFW/glfw-3.3/examples/CMakeLists.txt
+  CMake does not need to re-run because D:/OpenGL/GLFW/glfw-3.3/build/examples/CMakeFiles/generate.stamp is up-to-date.
+  gears.c
+  glad_gl.c
+  正在生成代码...
+  gears.vcxproj -> D:\OpenGL\GLFW\glfw-3.3\build\examples\Debug\gears.exe
