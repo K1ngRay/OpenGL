@@ -1,9 +1,12 @@
 #include<iostream>
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
+#include<malloc.h>
 using namespace std;
 
 int main() {
+
+	void DrawTriangle(GLFWwindow* window);
 
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,3);
@@ -32,25 +35,35 @@ int main() {
 
 	/*-------------------------------------------------*/
 
+	DrawTriangle(window);
+
+	//清理资源
+	glfwTerminate();
+	return 0;
+}
+
+void DrawTriangle(GLFWwindow* window) {
 	/*标准化的设备坐标*/
 	const float triangle[] = {
 		-0.5f,-0.5f,0.0f,	//左下
 		0.5f,-0.5f,0.0f,	//右下
 		0.0f,0.5f,0.0f		//正上
 	};
+
 	//生成并绑定VAO
 	GLuint vertex_array_object;
 	glGenVertexArrays(1, &vertex_array_object);
-	glBindVertexArray(vertex_array_object);
+	glBindVertexArray(vertex_array_object); //个人理解：VAO关联GL_ARRAY_BUFFER
 
 	//生成并绑定VBO
 	GLuint vertex_buffer_object;
 	glGenBuffers(1, &vertex_buffer_object);
-	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_object);
+	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_object); //个人理解：通过GL_ARRAY_BUFFER,将VBO绑定到VAO中
 	//将顶点数据绑定至当前默认的缓冲中
 	glBufferData(GL_ARRAY_BUFFER, sizeof(triangle), triangle, GL_STATIC_DRAW);
 
-	//设置顶点属性指针
+	//设置顶点属性指针,告诉OpenGL如何解释这些顶点数据
+	//参数：顶点着色器的绘制值，顶点属性的维度，数据类型，是否数据标准化（-1到1），步长，起点
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
@@ -85,7 +98,7 @@ int main() {
 	int success;
 	char info_log[512];
 	//检查着色器是否成功编译，如果编译失败，打印错误信息
-	glGetShaderiv(vertex_shader,GL_COMPILE_STATUS,&success);
+	glGetShaderiv(vertex_shader, GL_COMPILE_STATUS, &success);
 	if (!success)
 	{
 		glGetShaderInfoLog(vertex_shader, 512, NULL, info_log);
@@ -94,7 +107,7 @@ int main() {
 
 	//片段着色器
 	int fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragment_shader, 1, &fragment_shader_source,NULL);
+	glShaderSource(fragment_shader, 1, &fragment_shader_source, NULL);
 	glCompileShader(fragment_shader);
 	//检查着色器是否成功编译，如果编译失败，打印错误信息
 	glGetShaderiv(fragment_shader, GL_COMPILE_STATUS, &success);
@@ -122,7 +135,7 @@ int main() {
 	glDeleteShader(fragment_shader);
 
 	//线框模式
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	//渲染循环
 	while (!glfwWindowShouldClose(window))
@@ -148,10 +161,6 @@ int main() {
 	glDeleteVertexArrays(1, &vertex_array_object);
 	glDeleteBuffers(1, &vertex_buffer_object);
 
-	//清理资源
-	glfwTerminate();
-	return 0;
 }
-
 
 
