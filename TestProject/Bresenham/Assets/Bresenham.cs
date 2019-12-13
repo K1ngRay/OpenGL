@@ -183,7 +183,6 @@ public class Bresenham : MonoBehaviour {
         foreach (var item in dic)
         {
             item.Value.Sort(BucketsSort);
-            LinkNode(item.Value, 0);
         }
 
         List<BucketNode> vaildList = new List<BucketNode>();
@@ -245,14 +244,6 @@ public class Bresenham : MonoBehaviour {
         return value;
     }
 
-    void LinkNode(List<BucketNode> list,int index)
-    {
-        if (index >= list.Count - 1) return;
-
-        list[index].next = list[index + 1];
-        LinkNode(list, index + 1);
-    }
-
     void LinkPoint(List<Point> list,int index)
     {        
         if (index >= list.Count-1)
@@ -295,7 +286,6 @@ public class Bresenham : MonoBehaviour {
         public float x;
         public float yMax;
         public float delta;
-        public BucketNode next;
     }
 
     [Serializable]
