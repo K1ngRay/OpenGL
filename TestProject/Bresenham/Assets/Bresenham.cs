@@ -31,6 +31,14 @@ public class Bresenham : MonoBehaviour {
         LinkPoint(points, 0);
     }
 
+    private void OnDrawGizmos()
+    {
+        for (int i = 0; i < points.Count; i++)
+        {
+            Gizmos.DrawCube(new Vector3(points[i].xy.x,points[i].xy.y,-1f), Vector3.one);
+        }
+    }
+
     /// <summary>
     /// Bresenham
     /// </summary>
@@ -200,7 +208,7 @@ public class Bresenham : MonoBehaviour {
             for (int j = 0; j < vaildList.Count; j += 2)
             {
                 int min = Mathf.RoundToInt(vaildList[j].x);
-                int max = Mathf.RoundToInt(vaildList[j + 1].x);
+                int max = Mathf.FloorToInt(vaildList[j + 1].x); //左闭右开
                 for (int k = min; k <= max; k++)
                 {
                     Instantiate(cube2, new Vector3(k, i, 0f), Quaternion.identity, parent);
