@@ -85,7 +85,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Bresenham.cs" />
+    <Compile Include="Assets\Scripts\Bresenham.cs" />
+    <Compile Include="Assets\Scripts\Ploygen.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
