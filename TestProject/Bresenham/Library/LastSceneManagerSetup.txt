@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Ploygen.unity
+- path: Assets/Scenes/OverSampling.unity
   isLoaded: 1
   isActive: 1

@@ -86,6 +86,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bresenham.cs" />
+    <Compile Include="Assets\Scripts\Circle.cs" />
+    <Compile Include="Assets\Scripts\Ellipse.cs" />
+    <Compile Include="Assets\Scripts\OverSampling.cs" />
     <Compile Include="Assets\Scripts\Ploygen.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

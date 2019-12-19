@@ -15,9 +15,9 @@ public class Bresenham : MonoBehaviour {
 
     private Transform curCube;
 	void Start () {
-        Func1();
+        //Func1();
         Func2();
-        Func3();
+        //Func3();
         DrawBG();        
     }
 
