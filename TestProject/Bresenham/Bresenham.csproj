@@ -85,6 +85,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AreaSamping.cs" />
     <Compile Include="Assets\Scripts\Bresenham.cs" />
     <Compile Include="Assets\Scripts\Circle.cs" />
     <Compile Include="Assets\Scripts\Ellipse.cs" />
