@@ -1,4 +1,0 @@
-sceneSetups:
-- path: "Assets/Sences/Bezier\u66F2\u7EBF.unity"
-  isLoaded: 1
-  isActive: 1
