@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/AreaSamling.unity
+- path: Assets/Scenes/Ploygen.unity
   isLoaded: 1
   isActive: 1
