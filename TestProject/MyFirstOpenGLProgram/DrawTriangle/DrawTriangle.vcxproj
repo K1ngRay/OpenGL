@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\OpenGL\OpenGLLib\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\OpenGL\GLFW\glfw-3.3.bin.WIN32\lib-vc2017;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\OpenGL\OpenGLLib\include;D:\Unity 3D\Projects\OpenGL\OpenGLLib\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Unity 3D\Projects\OpenGL\GLFW\glfw-3.3.bin.WIN32\lib-vc2017;D:\OpenGL\GLFW\glfw-3.3.bin.WIN32\lib-vc2017;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
