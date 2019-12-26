@@ -1,3 +1,1 @@
-﻿  Main2.cpp
-d:\unity 3d\projects\opengl\testproject\myfirstopenglprogram\drawrectangle\main2.cpp(130): warning C4101: “nrAttributes”: 未引用的局部变量
-  DrawRectangle.vcxproj -> D:\Unity 3D\Projects\OpenGL\TestProject\MyFirstOpenGLProgram\Debug\DrawRectangle.exe
+﻿  DrawRectangle.vcxproj -> D:\OpenGL\TestProject\MyFirstOpenGLProgram\Debug\DrawRectangle.exe
