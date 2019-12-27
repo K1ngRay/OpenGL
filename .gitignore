@@ -4,3 +4,8 @@ TestProject/Bresenham/Library/
 TestProject/Bezier/Library/
 TestProject/MyFirstOpenGLProgram/Debug
 *.csproj
+TestProject/DrawSphere/Temp/
+TestProject/DrawSphere/Library/
+TestProject/DrawSphere/ProjectSettings/
+TestProject/DrawSphere/.vs
+TestProject/DrawSphere/DrawSphere.sln
