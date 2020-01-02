@@ -2,6 +2,7 @@ TestProject/Bresenham/Temp/
 TestProject/Bezier/Temp/
 TestProject/Bresenham/Library/
 TestProject/Bezier/Library/
+TestProject/Bezier/.vs
 TestProject/MyFirstOpenGLProgram/Debug
 *.csproj
 TestProject/DrawSphere/Temp/
@@ -9,3 +10,8 @@ TestProject/DrawSphere/Library/
 TestProject/DrawSphere/ProjectSettings/
 TestProject/DrawSphere/.vs
 TestProject/DrawSphere/DrawSphere.sln
+TestProject/Liang-Barsky/Temp/
+TestProject/Liang-Barsky/Library/
+TestProject/Liang-Barsky/ProjectSettings/
+TestProject/Liang-Barsky/.vs
+TestProject/Liang-Barsky/Liang-Barsky.sln
