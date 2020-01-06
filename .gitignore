@@ -21,7 +21,8 @@ TestProject/Unity3D/Liang-Barsky/ProjectSettings/
 TestProject/Unity3D/Liang-Barsky/.vs
 TestProject/Unity3D/Liang-Barsky/Liang-Barsky.sln
 *.vs
-TestProject/OpenGL/InteractiveCube/Debug
+TestProject/OpenGL/Cube/Cube/Debug
+TestProject/OpenGL/Cube/Debug
 *.filters
 *.user
 *.vcxproj
