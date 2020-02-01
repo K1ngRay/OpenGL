@@ -25,5 +25,6 @@ TestProject/OpenGL/Cube/Cube/Debug
 TestProject/OpenGL/Cube/Debug
 *.filters
 *.user
-*.vcxproj
 TestProject/Unity3D/Bresenham/ProjectSettings/
+TestProject/OpenGL/Phong/Phong/Debug
+TestProject/OpenGL/Phong/Debug
