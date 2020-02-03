@@ -81,7 +81,7 @@ PointLight::PointLight(vec3 position)
 }
 
 PointLight::PointLight(vec3 position, vec3 ambient, vec3 diffuse, vec3 specular)
-	: PointLight(position, ambient, diffuse, specular, DEFAULT_ATTENUATION_RATIO.x, DEFAULT_ATTENUATION_RATIO..y, DEFAULT_ATTENUATION_RATIO.z) 
+	: PointLight(position, ambient, diffuse, specular, DEFAULT_ATTENUATION_RATIO.x, DEFAULT_ATTENUATION_RATIO.y, DEFAULT_ATTENUATION_RATIO.z) 
 {
 }
 

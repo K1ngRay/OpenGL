@@ -14,8 +14,12 @@ Camera::Camera(vec3 position, vec3 world_up, float yaw, float pitch)
 	UpdateCameraVectors();
 }
 
+Camera::~Camera(){
+
+}
+
 mat4 Camera::GetViewMatrix() {
-	lookAt(position, position + forward, up);
+	return lookAt(position, position + forward, up);
 }
 
 void Camera::Move(vec3 distance) {

@@ -5,10 +5,10 @@
 
 Shader::Shader(const string vertexShaderPath, const string fragmentShaderPath)
 {
-	char* vertexShaderCode = GetShaderFromFile(vertexShaderPath);
-	char* fragmentShaderCode = GetShaderFromFile(fragmentShaderPath);
+	string vertexShaderCode = GetShaderFromFile(vertexShaderPath);
+	string fragmentShaderCode = GetShaderFromFile(fragmentShaderPath);
 
-	if (LinkShader(vertexShaderCode, fragmentShaderCode)) return;
+	if (LinkShader(vertexShaderCode.c_str(), fragmentShaderCode.c_str())) return;
 }
 
 
@@ -25,14 +25,19 @@ void Shader::SetBool(const string &name, bool value) {
 }
 
 void Shader::SetFloat(const string &name,float value) {
-	glUniform1f((GetUniform(name), value);
+	glUniform1f(GetUniform(name), value);
+}
+
+void Shader::SetMat4(const string &name, const glm::mat4 &value) {
+	glUniformMatrix4fv(GetUniform(name), 1, GL_FALSE, &value[0][0]);
 }
 
 void Shader::Use() {
 	glUseProgram(shaderProgram);
 }
 
-char* Shader::GetShaderFromFile(const string vertexShaderPath) {
+string Shader::GetShaderFromFile(const string vertexShaderPath)
+{
 	ifstream file;
 	file.exceptions(std::ifstream::badbit | std::ifstream::failbit);
 	try
@@ -41,7 +46,7 @@ char* Shader::GetShaderFromFile(const string vertexShaderPath) {
 		stringstream stream;
 		stream << file.rdbuf();
 		file.close();
-		return stream.str;
+		return	stream.str();
 	}
 	catch (const std::exception&)
 	{
@@ -99,7 +104,7 @@ int Shader::CheckCompileErrors(GLuint shader, Shader::CheckType type) {
 }
 
 int Shader::GetUniform(const string &name) {
-	int position = glGetUniformLocation(shaderProgram, name.c_str);
+	int position = glGetUniformLocation(shaderProgram, name.c_str());
 	if (position==-1)
 	{
 		cout << "uniform " << name << " set failed" << endl;

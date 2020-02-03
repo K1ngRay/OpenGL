@@ -28,7 +28,7 @@ public:
 	float mouse_speed;
 	float mouse_sensiticity;
 	float zoom;
-	float flip_y = false;//y轴是否反转了
+	float flip_y = false;//y轴是否要反转
 
 	Camera(vec3 position = vec3(0.0f, 0.0f, 0.0f), vec3 up = vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float picth = PITCH);;
 	~Camera();
