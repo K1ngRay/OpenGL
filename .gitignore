@@ -23,8 +23,6 @@ TestProject/Unity3D/Liang-Barsky/Liang-Barsky.sln
 *.vs
 TestProject/OpenGL/Cube/Cube/Debug
 TestProject/OpenGL/Cube/Debug
-*.filters
-*.user
 TestProject/Unity3D/Bresenham/ProjectSettings/
 TestProject/OpenGL/Phong/Phong/Debug
 TestProject/OpenGL/Phong/Debug
