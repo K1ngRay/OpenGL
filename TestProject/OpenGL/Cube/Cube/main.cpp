@@ -114,7 +114,7 @@ int main() {
 
 	glViewport(0, 0, screen_width, screen_height);
 
-	Shader shader("vertexShader.vs", "fragmentShader.fs");
+	Shader shader("vertexShader.vsh", "fragmentShader.fsh");
 
 	GLuint VAO, VBO;
 	glGenVertexArrays(1, &VAO);

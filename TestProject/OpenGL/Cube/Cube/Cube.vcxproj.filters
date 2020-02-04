@@ -29,10 +29,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="vertexShader.vs">
+    <None Include="vertexShader.vsh">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="fragmentShader.fs">
+    <None Include="fragmentShader.fsh">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
