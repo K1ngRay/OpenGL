@@ -24,7 +24,7 @@ void Shader::SetBool(const string &name, bool value) {
 	glUniform1i(GetUniform(name), (int)value);
 }
 
-void Shader::SetFloat(const string &name,float value) {
+void Shader::SetFloat(const string &name, float value) {
 	glUniform1f(GetUniform(name), value);
 }
 
@@ -83,7 +83,7 @@ int Shader::LinkShader(const char* vertexShaderCode, const char* fragmentShaderC
 int Shader::CheckCompileErrors(GLuint shader, Shader::CheckType type) {
 	GLint success;
 	GLchar infoLog[512];
-	if (type!=Enum_Program)
+	if (type != Enum_Program)
 	{
 		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
 		if (!success)
@@ -105,7 +105,7 @@ int Shader::CheckCompileErrors(GLuint shader, Shader::CheckType type) {
 
 int Shader::GetUniform(const string &name) {
 	int position = glGetUniformLocation(shaderProgram, name.c_str());
-	if (position==-1)
+	if (position == -1)
 	{
 		cout << "uniform " << name << " set failed" << endl;
 	}

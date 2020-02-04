@@ -104,7 +104,7 @@ int main() {
 	//glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 
 	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Light Show", nullptr, nullptr);
-	if (window==NULL)
+	if (window == NULL)
 	{
 		cout << "Create Windows Failed" << endl;
 		glfwTerminate();
@@ -129,12 +129,12 @@ int main() {
 	camera.flip_y = true;
 
 	//着色器
-	Shader lampShader = Shader("DrawLamp.vsh", "DrawLamp.fsh");
-	Shader cubeShader = Shader("DrawCube.vsh", "DrawCube,fsh");
+	Shader lampShader = Shader("DrawLamp.vs", "DrawLamp.fs");
+	Shader cubeShader = Shader("DrawCube.vs", "DrawCube,fs");
 
 	//设置光源
 	DirectLight dirLight = DirectLight(vec3(-0.2f, -1.0f, -0.3f), vec3(0.05f), vec3(0.4f), vec3(0.5f));
-	
+
 	PointLight pointLights[6];
 	for (int i = 0; i < 6; i++)
 	{
@@ -216,7 +216,7 @@ int main() {
 		glBindVertexArray(lamp_vao);
 		for (int i = 0; i < 6; i++)
 		{
-			if (IsLightOn(i+1))
+			if (IsLightOn(i + 1))
 			{
 				mat4 model = mat4(1.0f);
 				model = translate(model, pointLightPoses[i]);
@@ -230,7 +230,7 @@ int main() {
 		glfwPollEvents();//忘了这句是干嘛的了
 	}
 
-	glDeleteBuffers(1,&vbo);
+	glDeleteBuffers(1, &vbo);
 	glDeleteVertexArrays(1, &cube_vao);
 	glDeleteVertexArrays(1, &lamp_vao);
 
@@ -258,7 +258,7 @@ void FrameBufferSizeCallback(GLFWwindow* window, int width, int height) {
 }
 
 void KeyCallback(GLFWwindow* window, int key, int scanCode, int action, int mods) {
-	if (action==GLFW_PRESS)
+	if (action == GLFW_PRESS)
 	{
 		switch (key)
 		{

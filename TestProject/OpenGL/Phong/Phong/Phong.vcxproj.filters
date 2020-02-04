@@ -21,10 +21,13 @@
     <ClCompile Include="Camera.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="Shader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Light.cpp">
+    <ClCompile Include="glad.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,25 +35,27 @@
     <ClInclude Include="Camera.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Shader.h">
+    <ClInclude Include="Light.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Light.h">
+    <ClInclude Include="Shader.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DrawCube.vsh">
+    <None Include="DrawLamp.fs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="DrawLamp.vsh">
+    <None Include="DrawCube.fs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="DrawLamp.fsh">
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="DrawCube.vs">
       <Filter>资源文件</Filter>
-    </None>
-    <None Include="DrawCube.fsh">
+    </FxCompile>
+    <FxCompile Include="DrawLamp.vs">
       <Filter>资源文件</Filter>
-    </None>
+    </FxCompile>
   </ItemGroup>
 </Project>

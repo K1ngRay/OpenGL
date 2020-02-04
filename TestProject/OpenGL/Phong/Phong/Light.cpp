@@ -9,11 +9,11 @@ vec3 DEFAULT_ATTENUATION_RATIO = vec3(1.0f, 0.09f, 0.032f);
 vec2 DEFAULT_INTENSITY_RATIO = vec2(cos(radians(12.5f)), cos(radians(15.0f)));
 
 Light::Light()
-:Light(DEFAULT_AMBIENT, DEFAULT_DIFFUSE, DEFAULT_SPECULAR)
+	:Light(DEFAULT_AMBIENT, DEFAULT_DIFFUSE, DEFAULT_SPECULAR)
 {
 }
 
-Light::Light(vec3 ambient,vec3 diffuse,vec3 specular) {
+Light::Light(vec3 ambient, vec3 diffuse, vec3 specular) {
 	this->ambient = ambient;
 	this->diffuse = diffuse;
 	this->specular = specular;
@@ -39,18 +39,18 @@ void Light::SetActive(bool active) {
 	this->active = active;
 }
 
-DirectLight::DirectLight() 
+DirectLight::DirectLight()
 	:DirectLight(DEFAULT_DIRECTION)
 {
 }
 
-DirectLight::DirectLight(vec3 direction) 
-	:DirectLight(direction,DEFAULT_AMBIENT,DEFAULT_DIFFUSE,DEFAULT_SPECULAR)
+DirectLight::DirectLight(vec3 direction)
+	: DirectLight(direction, DEFAULT_AMBIENT, DEFAULT_DIFFUSE, DEFAULT_SPECULAR)
 {
 }
 
 DirectLight::DirectLight(vec3 direction, vec3 ambient, vec3 diffuse, vec3 specular)
-	: Light(ambient, diffuse, specular) 
+	: Light(ambient, diffuse, specular)
 {
 	this->direction = direction;
 }
@@ -74,14 +74,14 @@ PointLight::PointLight()
 	:PointLight(DEFAULT_POSITION) {
 }
 
-PointLight::PointLight(vec3 position) 
-	:PointLight(position,DEFAULT_AMBIENT,DEFAULT_DIFFUSE,DEFAULT_SPECULAR)
+PointLight::PointLight(vec3 position)
+	: PointLight(position, DEFAULT_AMBIENT, DEFAULT_DIFFUSE, DEFAULT_SPECULAR)
 {
 
 }
 
 PointLight::PointLight(vec3 position, vec3 ambient, vec3 diffuse, vec3 specular)
-	: PointLight(position, ambient, diffuse, specular, DEFAULT_ATTENUATION_RATIO.x, DEFAULT_ATTENUATION_RATIO.y, DEFAULT_ATTENUATION_RATIO.z) 
+	: PointLight(position, ambient, diffuse, specular, DEFAULT_ATTENUATION_RATIO.x, DEFAULT_ATTENUATION_RATIO.y, DEFAULT_ATTENUATION_RATIO.z)
 {
 }
 
@@ -119,7 +119,7 @@ void PointLight::Draw(Shader shader, string name) {
 }
 
 SpotLight::SpotLight()
-	:SpotLight(DEFAULT_POSITION,DEFAULT_DIRECTION)
+	:SpotLight(DEFAULT_POSITION, DEFAULT_DIRECTION)
 {
 
 }
@@ -131,9 +131,9 @@ SpotLight::SpotLight(vec3 position, vec3 direction)
 }
 
 SpotLight::SpotLight(vec3 position, vec3 direction, vec3 ambient, vec3 diffuse, vec3 specular)
-	: SpotLight(position,direction,ambient,diffuse,specular,
-		DEFAULT_ATTENUATION_RATIO.x,DEFAULT_ATTENUATION_RATIO.y,DEFAULT_ATTENUATION_RATIO.z,
-		DEFAULT_INTENSITY_RATIO.x,DEFAULT_INTENSITY_RATIO.y) {
+	: SpotLight(position, direction, ambient, diffuse, specular,
+		DEFAULT_ATTENUATION_RATIO.x, DEFAULT_ATTENUATION_RATIO.y, DEFAULT_ATTENUATION_RATIO.z,
+		DEFAULT_INTENSITY_RATIO.x, DEFAULT_INTENSITY_RATIO.y) {
 
 }
 

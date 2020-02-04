@@ -63,7 +63,7 @@ public:
 	SpotLight(vec3 position, vec3 direction);
 	SpotLight(vec3 position, vec3 direction, vec3 ambient, vec3 diffuse, vec3 specular);
 	SpotLight(vec3 position, vec3 direction, vec3 ambient, vec3 diffuse, vec3 specular, float constant, float linear, float quadratic, float cut_off, float outer_cut_off);
-	
+
 	void SetPosition(vec3 position);
 	void SetDirection(vec3 direction);
 	void SetAttenuaionRatio(vec3 attenuation_ratio);

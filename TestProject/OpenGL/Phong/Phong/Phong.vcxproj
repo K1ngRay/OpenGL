@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{7BE1EC3F-76F2-47D6-A385-5AC92496AD1F}</ProjectGuid>
+    <ProjectGuid>{37526914-2A51-452D-9C0C-4227DCF5F3FC}</ProjectGuid>
     <RootNamespace>Phong</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -122,6 +122,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="glad.c" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -133,9 +134,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DrawCube.fs" />
-    <None Include="DrawCube.vs" />
     <None Include="DrawLamp.fs" />
-    <None Include="DrawLamp.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="DrawCube.vs" />
+    <FxCompile Include="DrawLamp.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

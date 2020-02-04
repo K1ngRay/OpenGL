@@ -1,7 +1,7 @@
 #include "Camera.h"
 
 Camera::Camera(vec3 position, vec3 world_up, float yaw, float pitch)
-	:forward(vec3(0.0f,0.0f,1.0f)),
+	:forward(vec3(0.0f, 0.0f, 1.0f)),
 	mouse_sensiticity(SENSITIVITY),
 	mouse_speed(SPEED),
 	zoom(ZOOM)
@@ -14,7 +14,7 @@ Camera::Camera(vec3 position, vec3 world_up, float yaw, float pitch)
 	UpdateCameraVectors();
 }
 
-Camera::~Camera(){
+Camera::~Camera() {
 
 }
 
