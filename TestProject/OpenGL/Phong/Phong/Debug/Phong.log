@@ -1,0 +1,49 @@
+﻿  Camera.cpp
+  Light.cpp
+  Shader.cpp
+  main.cpp
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(106): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(167): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(170): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(172): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(281): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(282): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(283): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(284): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(286): warning C4305: “初始化”: 从“double”到“float”截断
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(294): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+  正在生成代码...
+LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+main.obj : error LNK2019: 无法解析的外部符号 _gladLoadGLLoader，该符号在函数 _main 中被引用
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glClear
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glClearColor
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glEnable
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glViewport
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glDrawArrays
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glBindBuffer
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glDeleteBuffers
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glGenBuffers
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glBufferData
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glEnableVertexAttribArray
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glVertexAttribPointer
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glBindVertexArray
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glDeleteVertexArrays
+main.obj : error LNK2001: 无法解析的外部符号 _glad_glGenVertexArrays
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glAttachShader
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glCompileShader
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glCreateProgram
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glCreateShader
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glDeleteShader
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glGetProgramiv
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glGetProgramInfoLog
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glGetShaderiv
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glGetShaderInfoLog
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glGetUniformLocation
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glLinkProgram
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glShaderSource
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glUseProgram
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glUniform1f
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glUniform3f
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glUniform1i
+Shader.obj : error LNK2001: 无法解析的外部符号 _glad_glUniformMatrix4fv
+D:\Unity 3D\Projects\OpenGL\TestProject\OpenGL\Phong\Debug\Phong.exe : fatal error LNK1120: 32 个无法解析的外部命令
