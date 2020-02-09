@@ -51,7 +51,7 @@ string Shader::GetShaderFromFile(const string vertexShaderPath)
 	catch (const std::exception&)
 	{
 		cout << "Load Shader File From " << &vertexShaderPath << " Error!" << endl;
-		return NULL;
+		return "";
 	}
 }
 
@@ -97,7 +97,7 @@ int Shader::CheckCompileErrors(GLuint shader, Shader::CheckType type) {
 	}
 
 	if (!success) {
-		cout << type << " Error" << endl;
+		cout << type << " Error:" << infoLog << endl;
 		return -1;
 	}
 	else return 0;

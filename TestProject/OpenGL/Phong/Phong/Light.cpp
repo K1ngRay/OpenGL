@@ -64,6 +64,7 @@ void DirectLight::SetDirection(vec3 direction) {
 }
 
 void DirectLight::Draw(Shader shader, string name) {
+	shader.SetBool(name + ".active", active);
 	shader.SetVec3(name + ".direction", direction);
 	shader.SetVec3(name + ".ambient", ambient);
 	shader.SetVec3(name + ".diffuse", diffuse);
@@ -89,7 +90,7 @@ PointLight::PointLight(vec3 position, vec3 ambient, vec3 diffuse, vec3 specular,
 	: Light(ambient, diffuse, specular) {
 	this->position = position;
 	this->constant = constant;
-	this->linear = linear;
+	this->linear = constant;//linear;
 	this->quadratic = quadratic;
 }
 
@@ -110,6 +111,7 @@ void PointLight::SetAttenuationRatio(vec3 attenuationRatio) {
 
 void PointLight::Draw(Shader shader, string name) {
 	shader.SetBool(name + ".active", active);
+	shader.SetVec3(name + ".position", position);
 	shader.SetVec3(name + ".ambient", ambient);
 	shader.SetVec3(name + ".diffuse", ambient);
 	shader.SetVec3(name + ".specular", specular);
@@ -142,7 +144,7 @@ SpotLight::SpotLight(vec3 position, vec3 direction, vec3 ambient, vec3 diffuse, 
 	this->position = position;
 	this->direction = direction;
 	this->constant = constant;
-	this->linear = linear;
+	this->linear = constant; //linear;
 	this->quadratic = quadratic;
 	this->cut_off = cut_off;
 	this->outer_cut_off = outer_cut_off;
@@ -175,6 +177,6 @@ void SpotLight::Draw(Shader shader, string name) {
 	shader.SetFloat(name + ".c", constant);
 	shader.SetFloat(name + ".l", linear);
 	shader.SetFloat(name + ".q", quadratic);
-	shader.SetFloat(name + ".cut", cut_off);
-	shader.SetFloat(name + ".o", outer_cut_off);
+	shader.SetFloat(name + ".cutOff", cut_off);
+	shader.SetFloat(name + ".outerCutOff", outer_cut_off);
 }

@@ -1,4 +1,12 @@
-﻿D:\Unity 3D\Projects\OpenGL\TestProject\OpenGL\Phong\Phong\DrawCube.vs(1,2-8): error X1504: invalid preprocessor command 'version'
-D:\Unity 3D\Projects\OpenGL\TestProject\OpenGL\Phong\Phong\DrawCube.vs(2,1-6): error X3000: unrecognized identifier 'layout'
-  
-  compilation failed; no code produced
+﻿  main.cpp
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(106): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(167): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(170): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(172): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(283): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(284): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(285): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(286): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(288): warning C4305: “初始化”: 从“double”到“float”截断
+d:\unity 3d\projects\opengl\testproject\opengl\phong\phong\main.cpp(296): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+  Phong.vcxproj -> D:\Unity 3D\Projects\OpenGL\TestProject\OpenGL\Phong\Debug\Phong.exe

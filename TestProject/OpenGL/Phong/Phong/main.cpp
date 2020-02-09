@@ -100,7 +100,7 @@ int main() {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+	//glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	//glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 
 	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Light Show", nullptr, nullptr);
@@ -129,8 +129,8 @@ int main() {
 	camera.flip_y = true;
 
 	//着色器
+	Shader cubeShader = Shader("DrawCube.vs", "DrawCube.fs");
 	Shader lampShader = Shader("DrawLamp.vs", "DrawLamp.fs");
-	Shader cubeShader = Shader("DrawCube.vs", "DrawCube,fs");
 
 	//设置光源
 	DirectLight dirLight = DirectLight(vec3(-0.2f, -1.0f, -0.3f), vec3(0.05f), vec3(0.4f), vec3(0.5f));
@@ -138,10 +138,10 @@ int main() {
 	PointLight pointLights[6];
 	for (int i = 0; i < 6; i++)
 	{
-		pointLights[i] = PointLight(pointLightPoses[i], 0.05f*lightColors[i], 0.8f*lightColors[i], lightColors[i]);
+		pointLights[i] = PointLight(pointLightPoses[i], 0.05f * lightColors[i], 0.8f * lightColors[i], lightColors[i]);
 	}
 
-	SpotLight spotLight = SpotLight(camera.position, camera.forward, vec3(0.0f), vec3(1.0f), vec3(1.0f),
+	SpotLight spotLight = SpotLight(camera.position, camera.forward, vec3(0.0f), vec3(0.0f), vec3(0.0f),
 		1.0f, 0.09f, 0.032f, cos(radians(12.5f)), cos(radians(15.0f)));
 
 	//绑定VAO,VBO
@@ -158,7 +158,7 @@ int main() {
 
 	glGenVertexArrays(1, &cube_vao);
 	glBindVertexArray(cube_vao);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);	//这句的位置可以调换一下上下看看效果
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
@@ -181,20 +181,20 @@ int main() {
 
 		//设置立方体材质
 		cubeShader.Use();
-		cubeShader.SetVec3("viewPos", camera.position); //看不懂
-		cubeShader.SetFloat("material.shinness", 32.0f);
+		cubeShader.SetVec3("viewPos", camera.position);
+		cubeShader.SetFloat("material.shininess", 32.0f);
 		cubeShader.SetVec3("material.diffuse", vec3(0.0f, 0.5f, 0.5f));
 		cubeShader.SetVec3("material.specular", vec3(0.5f));
 
-		dirLight.SetActive(IsLightOn(0));	//看不懂
+		dirLight.SetActive(IsLightOn(0));
 		dirLight.Draw(cubeShader, "dirLight");
 
 		for (int i = 0; i < 6; i++)
 		{
 			stringstream name_stream;
-			name_stream << "pointLight[" << i << "]";
+			name_stream << "pointLights[" << i << "]";
 			string name = name_stream.str();
-			pointLights[i].SetActive(IsLightOn(i));
+			pointLights[i].SetActive(IsLightOn(i + 1));
 			pointLights[i].Draw(cubeShader, name);
 		}
 
@@ -212,6 +212,9 @@ int main() {
 		cubeShader.SetMat4("model", model);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
+		lampShader.Use();
+		lampShader.SetMat4("projection", projection);
+		lampShader.SetMat4("view", view);
 		//绘制灯
 		glBindVertexArray(lamp_vao);
 		for (int i = 0; i < 6; i++)
@@ -220,7 +223,7 @@ int main() {
 			{
 				mat4 model = mat4(1.0f);
 				model = translate(model, pointLightPoses[i]);
-				//model = scale(model, vec3(0.2f, 0.2f, 0.2f));
+				model = scale(model, vec3(0.2f, 0.2f, 0.2f));
 				lampShader.SetMat4("model", model);
 				lampShader.SetVec3("lightColor", lightColors[i]);
 				glDrawArrays(GL_TRIANGLES, 0, 36); //为什么是36
@@ -252,7 +255,6 @@ void ProcessInput(GLFWwindow* window) {
 }
 
 // 窗口大小调整的回调函数(当窗口大小改变时，视口也要改变)
-// 不知道哪里用得到
 void FrameBufferSizeCallback(GLFWwindow* window, int width, int height) {
 	glViewport(0, 0, width, height);
 }
@@ -295,5 +297,6 @@ void ScrollCallback(GLFWwindow* window, double xOffset, double yOffset) {
 }
 
 bool IsLightOn(int index) {
-	return (lightBits >> index) & 1;
+	int res = lightBits >> index;
+	return res & 1;
 }

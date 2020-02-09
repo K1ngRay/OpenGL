@@ -134,11 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DrawCube.fs" />
+    <None Include="DrawCube.vs" />
     <None Include="DrawLamp.fs" />
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="DrawCube.vs" />
-    <FxCompile Include="DrawLamp.vs" />
+    <None Include="DrawLamp.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

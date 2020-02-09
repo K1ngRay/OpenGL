@@ -49,13 +49,11 @@
     <None Include="DrawCube.fs">
       <Filter>资源文件</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="DrawCube.vs">
+    <None Include="DrawCube.vs">
       <Filter>资源文件</Filter>
-    </FxCompile>
-    <FxCompile Include="DrawLamp.vs">
+    </None>
+    <None Include="DrawLamp.vs">
       <Filter>资源文件</Filter>
-    </FxCompile>
+    </None>
   </ItemGroup>
 </Project>
