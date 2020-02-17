@@ -134,15 +134,23 @@
     <ClInclude Include="Shader.h" />
     <ClInclude Include="SkyboxMain.h" />
     <ClInclude Include="stb\stb_image.h" />
+    <ClInclude Include="TangentMain.h" />
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cubemap.fs" />
     <None Include="cubemap.vs" />
+    <None Include="normal.fs" />
+    <None Include="normal.vs" />
+    <None Include="normalTangent.fs" />
+    <None Include="normalTangent.vs" />
     <None Include="skybox.fs" />
     <None Include="skybox.vs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="texture\CG_Sprite.jpg" />
+    <Image Include="texture\cube_diffuse.jpg" />
+    <Image Include="texture\cube_normal.jpg" />
     <Image Include="texture\skybox_snow\back.jpg" />
     <Image Include="texture\skybox_snow\bottom.jpg" />
     <Image Include="texture\skybox_snow\front.jpg" />

@@ -1,100 +1,13 @@
 #pragma once
 
 #include "Project.h"
-
-float skybox_vertices[] = {   //天空盒顶点数组
-	  -1.0f,  1.0f, -1.0f,
-	  -1.0f, -1.0f, -1.0f,
-	  1.0f, -1.0f, -1.0f,
-	  1.0f, -1.0f, -1.0f,
-	  1.0f,  1.0f, -1.0f,
-	  -1.0f,  1.0f, -1.0f,
-
-	  -1.0f, -1.0f,  1.0f,
-	  -1.0f, -1.0f, -1.0f,
-	  -1.0f,  1.0f, -1.0f,
-	  -1.0f,  1.0f, -1.0f,
-	  -1.0f,  1.0f,  1.0f,
-	  -1.0f, -1.0f,  1.0f,
-
-	  1.0f, -1.0f, -1.0f,
-	  1.0f, -1.0f,  1.0f,
-	  1.0f,  1.0f,  1.0f,
-	  1.0f,  1.0f,  1.0f,
-	  1.0f,  1.0f, -1.0f,
-	  1.0f, -1.0f, -1.0f,
-
-	  -1.0f, -1.0f,  1.0f,
-	  -1.0f,  1.0f,  1.0f,
-	  1.0f,  1.0f,  1.0f,
-	  1.0f,  1.0f,  1.0f,
-	  1.0f, -1.0f,  1.0f,
-	  -1.0f, -1.0f,  1.0f,
-
-	  -1.0f,  1.0f, -1.0f,
-	  1.0f,  1.0f, -1.0f,
-	  1.0f,  1.0f,  1.0f,
-	  1.0f,  1.0f,  1.0f,
-	  -1.0f,  1.0f,  1.0f,
-	  -1.0f,  1.0f, -1.0f,
-
-	  -1.0f, -1.0f, -1.0f,
-	  -1.0f, -1.0f,  1.0f,
-	  1.0f, -1.0f, -1.0f,
-	  1.0f, -1.0f, -1.0f,
-	  -1.0f, -1.0f,  1.0f,
-	  1.0f, -1.0f,  1.0f
-	};
-
-const float vertices[] = { //立方体数组
-	-0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-	0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-	0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-	0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-	-0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-	-0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-
-	-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-	0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-	0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-	0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-	-0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-	-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-
-	-0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-	-0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-	-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-	-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-	-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-	-0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-
-	0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-	0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-	0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-	0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-	0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-	0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-
-	-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-	0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
-	0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-	0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-	-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-	-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-
-	-0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-	0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-	0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-	0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-	-0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-	-0.5f,  0.5f, -0.5f,  0.0f, 1.0f
-	};
+#include <vector>
 
 class Skybox : public Project
 {
 public:
-	Skybox(){
-	
+	Skybox() {
+
 	}
 
 	GLFWwindow* CreateWindow(unsigned int width, unsigned int height, GLFWmonitor* monitor, GLFWwindow* share) {
@@ -102,11 +15,56 @@ public:
 		return window;
 	}
 
-	void InitCubeVAO(GLuint &vao, GLuint &vbo) {
+	void InitCubeVAO(GLuint &vao, GLuint &vbo)
+	{
+		float vertices[] = { //立方体数组
+		   -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+		   0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+		   0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		   0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		   -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+		   -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+
+		   -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+		   0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+		   0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+		   0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+		   -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+		   -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+
+		   -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+		   -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		   -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+		   -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+		   -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+		   -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+		   0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+		   0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		   0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+		   0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+		   0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+		   0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+		   -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+		   0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+		   0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+		   0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+		   -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+		   -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+
+		   -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+		   0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		   0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+		   0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+		   -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+		   -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+		};
+
 		glGenVertexArrays(1, &vao);
 		glBindVertexArray(vao);
 
-		glGenBuffers(1,&vbo);
+		glGenBuffers(1, &vbo);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
@@ -118,6 +76,50 @@ public:
 	}
 
 	void InitSkyboxVAO(GLuint &vao, GLuint &vbo) {
+		float skybox_vertices[] = {   //天空盒顶点数组
+			-1.0f,  1.0f, -1.0f,
+			-1.0f, -1.0f, -1.0f,
+			1.0f, -1.0f, -1.0f,
+			1.0f, -1.0f, -1.0f,
+			1.0f,  1.0f, -1.0f,
+			-1.0f,  1.0f, -1.0f,
+
+			-1.0f, -1.0f,  1.0f,
+			-1.0f, -1.0f, -1.0f,
+			-1.0f,  1.0f, -1.0f,
+			-1.0f,  1.0f, -1.0f,
+			-1.0f,  1.0f,  1.0f,
+			-1.0f, -1.0f,  1.0f,
+
+			1.0f, -1.0f, -1.0f,
+			1.0f, -1.0f,  1.0f,
+			1.0f,  1.0f,  1.0f,
+			1.0f,  1.0f,  1.0f,
+			1.0f,  1.0f, -1.0f,
+			1.0f, -1.0f, -1.0f,
+
+			-1.0f, -1.0f,  1.0f,
+			-1.0f,  1.0f,  1.0f,
+			1.0f,  1.0f,  1.0f,
+			1.0f,  1.0f,  1.0f,
+			1.0f, -1.0f,  1.0f,
+			-1.0f, -1.0f,  1.0f,
+
+			-1.0f,  1.0f, -1.0f,
+			1.0f,  1.0f, -1.0f,
+			1.0f,  1.0f,  1.0f,
+			1.0f,  1.0f,  1.0f,
+			-1.0f,  1.0f,  1.0f,
+			-1.0f,  1.0f, -1.0f,
+
+			-1.0f, -1.0f, -1.0f,
+			-1.0f, -1.0f,  1.0f,
+			1.0f, -1.0f, -1.0f,
+			1.0f, -1.0f, -1.0f,
+			-1.0f, -1.0f,  1.0f,
+			1.0f, -1.0f,  1.0f
+		};
+
 		glGenBuffers(1, &vbo);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(skybox_vertices), skybox_vertices, GL_STATIC_DRAW);
@@ -132,7 +134,7 @@ public:
 		glGenTextures(1, &texture);
 		glBindTexture(GL_TEXTURE_2D, texture);
 
-		//黄庆锐：要好好看
+		//TODO：要好好看
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -140,11 +142,11 @@ public:
 
 		int width, height, channels; //宽，长，通道数
 		stbi_set_flip_vertically_on_load(true);  //实现翻转y坐标,因为 OpenGL的纹理坐标起点在于左下角. 而图像纹理坐标的起点在于左上角.
-		stbi_uc *data = stbi_load("texture/CG_Sprite.jpg", &width, &height, &channels,0);
-		
+		stbi_uc *data = stbi_load("texture/CG_Sprite.jpg", &width, &height, &channels, 0);
+
 		if (data)
 		{
-			//黄庆锐：调试看看data里面存了什么,还有这两句是什么意思
+			//TODO：调试看看data里面存了什么,还有这两句是什么意思
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 			glGenerateMipmap(GL_TEXTURE_2D);
 		}
@@ -185,7 +187,7 @@ public:
 			}
 			stbi_image_free(data);
 		}
-		//黄庆锐：好好看
+		//TODO：好好看
 		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -193,4 +195,42 @@ public:
 		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 	}
 
+	void Render(Shader &cubeShader,Shader &skyboxShader,GLuint &cubeTex,GLuint &skyboxTex,GLuint &cubeVAO,GLuint &skyboxVAO,Camera &camera) {
+		glActiveTexture(GL_TEXTURE0); //以前没有的，要好好看
+		glBindTexture(GL_TEXTURE_2D, cubeTex);
+
+		cubeShader.Use();
+
+		mat4 model(1);
+		model = glm::rotate(model, (float)glfwGetTime(), vec3(0.5f, 1.0f, 0.0f));
+		mat4 view(1);
+		view = camera.GetViewMatrix();
+		mat4 projection(1);
+		projection = perspective(radians(camera.Zoom), 1280.0f / 720.0f, 0.1f, 100.0f);
+
+		cubeShader.SetMat4("model", model);
+		cubeShader.SetMat4("view", view);
+		cubeShader.SetMat4("projection", projection);
+
+		glBindVertexArray(cubeVAO);	//TODO：为什么uv不用绑
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glBindVertexArray(0); //TODO：忘记怎么解绑了
+
+		//TODO：新内容
+		glDepthFunc(GL_LEQUAL);//深度测试  输入的深度值小于或等于参考值，则通过
+		glDepthMask(GL_FALSE);//禁止向深度缓冲区写入数据
+
+		skyboxShader.Use();
+		view = mat4(mat3(camera.GetViewMatrix()));// remove translation from the view matrix
+		skyboxShader.SetMat4("view", view);
+		skyboxShader.SetMat4("projection", projection);
+
+		glBindVertexArray(skyboxVAO);
+		glBindTexture(GL_TEXTURE_CUBE_MAP, skyboxTex);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glDepthMask(GL_TRUE);//允许向深度缓冲区写入数据
+		glBindVertexArray(0);
+		glDepthFunc(GL_LESS);//深度测试  输入的深度值小于参考值，则通过
+
+	}
 };

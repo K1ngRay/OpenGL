@@ -4,12 +4,14 @@
 #include"sstream"
 #include"iostream"
 
-Shader::Shader(const char* vertexShaderPath,const char* fragmentShaderPath)
+Shader::Shader(const char* vPath,const char* fPath)
 {
-	string vCode = GetShaderFromFile(vertexShaderPath);
-	string fCode = GetShaderFromFile(fragmentShaderPath);
+	string vCode = GetShaderFromFile(vPath);
+	string fCode = GetShaderFromFile(fPath);
 
-	LinkShader(vCode.c_str(), fCode.c_str());
+	success = 1;
+	if (!LinkShader(vCode.c_str(), fCode.c_str())) 
+		success = 0;
 }
 
 Shader::~Shader()
@@ -58,25 +60,29 @@ string Shader::GetShaderFromFile(const char* path) {
 	}
 }
 
-void Shader::LinkShader(const char* vCode, const char* fCode) {
+unsigned int Shader::LinkShader(const char* vCode, const char* fCode) {
 	unsigned int vShader = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vShader, 1, &vCode, NULL);
 	glCompileShader(vShader);
-	CheckError(vShader, "SHADER");
+	if (!CheckError(vShader, "SHADER")) 
+		return 0;
 
 	unsigned int fShader = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(fShader, 1, &fCode, NULL);
 	glCompileShader(fShader);
-	CheckError(fShader, "SHADER");
+	if (!CheckError(fShader, "SHADER")) 
+		return 0;
 
 	shaderProgram = glCreateProgram();
 	glAttachShader(shaderProgram, vShader);
 	glAttachShader(shaderProgram, fShader);
 	glLinkProgram(shaderProgram);
-	CheckError(shaderProgram, "PROGRAM");
+	if (!CheckError(shaderProgram, "PROGRAM")) 
+		return 0;
 
 	glDeleteShader(vShader);
 	glDeleteShader(fShader);
+	return 1;
 }
 
 int Shader::GetUniform(const string &name) {
@@ -88,7 +94,7 @@ int Shader::GetUniform(const string &name) {
 	return position;
 }
 
-void Shader::CheckError(unsigned int shader, string type) {
+unsigned int Shader::CheckError(unsigned int shader, string type) {
 	GLint success;
 	GLchar infoLog[512];
 	if (type == "PROGRAM")
@@ -109,4 +115,5 @@ void Shader::CheckError(unsigned int shader, string type) {
 			std::cout << "ERROR::SHADER::" << type << "::COMPILATION_FAILED\n" << infoLog << std::endl;
 		}
 	}
+	return success;
 }

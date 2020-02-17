@@ -12,8 +12,9 @@ class Shader
 public:
 
 	unsigned int shaderProgram;
+	unsigned int success;
 
-	Shader(const char* vertexShaderPath, const char* fragmentShaderPath);
+	Shader(const char* vPath, const char* fPath);
 	~Shader();
 
 	void Use();
@@ -25,8 +26,8 @@ public:
 
 private:
 	string GetShaderFromFile(const char* path);
-	void LinkShader(const char* vCode,const char* fCode);
+	unsigned int LinkShader(const char* vCode,const char* fCode);
 	int GetUniform(const string &name);
-	void CheckError(unsigned int shader, string type);
+	unsigned int CheckError(unsigned int shader, string type);
 };
 

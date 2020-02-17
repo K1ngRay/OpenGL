@@ -1,15 +1,18 @@
+#define IS_SKYBOX false
+
 #include<iostream>
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
 #include<glm/glm/glm.hpp>
 #include<glm/glm/gtc/matrix_transform.hpp>
 #include<glm/glm/gtc/type_ptr.hpp>
-#include<vector>
-#include"stb/stb_image.h"
+#include<string>
 
 #include "Camera.h"
 #include "Shader.h"
+#include "Texture.h"
 #include "SkyboxMain.h"
+#include "TangentMain.h"
 
 using namespace std;
 using namespace glm;
@@ -19,12 +22,10 @@ void MouseCallback(GLFWwindow* window, double xPos, double yPos);
 void ScrollCallback(GLFWwindow* window, double xOffset, double yOffset);
 void ProcessInput(GLFWwindow* window);
 
-unsigned int LoadCubeMap(vector<string> faces); //天空盒加载
-
 const unsigned int SCREEN_WIDTH = 1280;
 const unsigned int SCREEN_HEIGHT = 720;
 
-Camera camera(vec3(1.0f,0.0f,5.0f));
+Camera camera(vec3(0.0f,0.0f,3.0f));
 float lastX = (float)SCREEN_WIDTH / 2.0f, lastY = (float)SCREEN_HEIGHT / 2.0f; // 设置鼠标初始位置为屏幕中心
 bool firstMouse = true;
 
@@ -37,8 +38,11 @@ int main() {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+#if IS_SKYBOX
 	Skybox project;
-
+#else
+	Tangent project;
+#endif
 	GLFWwindow* window = project.CreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, NULL, NULL);
 
 	if (window==NULL)
@@ -61,8 +65,12 @@ int main() {
 
 	glEnable(GL_DEPTH_TEST); //开启深度测试，但到现在为止还不知道具体的用处
 
+	Texture textureClass;
+#if IS_SKYBOX
 	Shader cubeShader("cubemap.vs", "cubemap.fs");
+	if (!cubeShader.success) return 0;
 	Shader skyboxShader("skybox.vs", "skybox.fs");
+	if (!skyboxShader.success) return 0;
 
 	//初始化VAO和VBO
 	GLuint cubeVAO, cubeVBO, skyboxVAO, skyboxVBO;
@@ -71,13 +79,43 @@ int main() {
 
 	//初始化纹理
 	GLuint cubeTexture, skyboxTexture;
-	project.InitCubeTexture(cubeTexture);
-	project.InitSkyboxTexture(skyboxTexture);
+	vector<string> faces
+	{
+		("texture/skybox_snow/right.jpg"),
+		("texture/skybox_snow/left.jpg"),
+		("texture/skybox_snow/top.jpg"),
+		("texture/skybox_snow/bottom.jpg"),
+		("texture/skybox_snow/back.jpg"),
+		("texture/skybox_snow/front.jpg")
+	};
+
+	//project.InitCubeTexture(cubeTexture);
+	//project.InitSkyboxTexture(skyboxTexture);
+	cubeTexture = textureClass.LoadTextureFromFile("texture/CG_Sprite.jpg");
+	skyboxTexture = textureClass.LoadTexturesFromFile(faces);
 
 	cubeShader.Use();
 	cubeShader.SetInt("texture1", 0);  //传入纹理
 	skyboxShader.Use();
 	skyboxShader.SetInt("skybox", 0);	//传入纹理
+#else 
+	Shader withoutShader("normal.vs", "normal.fs");
+	if (!withoutShader.success) 
+		return 0;
+	Shader withShader("normalTangent.vs", "normalTangent.fs");
+	if (!withShader.success) 
+		return 0;
+
+	//初始化VAO和VBO
+	GLuint withoutVAO, withoutVBO, withVAO, withVBO;
+	project.InitCubeVAOWithoutTangent(withoutVAO, withoutVBO);
+	project.InitCubeVAOWithTangent(withVAO, withVBO);
+
+	//初始化纹理
+	GLuint texture, normal;
+	texture = textureClass.LoadTextureFromFile("texture/cube_diffuse.jpg");
+	normal = textureClass.LoadTextureFromFile("texture/cube_normal.jpg");
+#endif
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -90,53 +128,31 @@ int main() {
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		glActiveTexture(GL_TEXTURE0); //以前没有的，要好好看
-		glBindTexture(GL_TEXTURE_2D, cubeTexture);
-
-		cubeShader.Use();
-
-		mat4 model(1);
-		model = rotate(model, currentFrame, vec3(0.5f, 1.0f, 0.0f));
-		mat4 view(1);
-		view = camera.GetViewMatrix();
-		mat4 projection(1);
-		projection = perspective(radians(camera.Zoom), (float)SCREEN_WIDTH / SCREEN_HEIGHT, 0.1f, 100.0f);
-
-		cubeShader.SetMat4("model", model);
-		cubeShader.SetMat4("view", view);
-		cubeShader.SetMat4("projection", projection);
-
-		glBindVertexArray(cubeVAO);	//黄庆锐：为什么uv不用绑
-		glDrawArrays(GL_TRIANGLES, 0, 36);
-		glBindVertexArray(0); //黄庆锐：忘记怎么解绑了
-
-		//黄庆锐：新内容
-		glDepthFunc(GL_LEQUAL);//深度测试  输入的深度值小于或等于参考值，则通过
-		glDepthMask(GL_FALSE);//禁止向深度缓冲区写入数据
-
-		skyboxShader.Use();
-		view = mat4(mat3(camera.GetViewMatrix()));// remove translation from the view matrix
-		skyboxShader.SetMat4("view",view);
-		skyboxShader.SetMat4("projection",projection);
-
-		glBindVertexArray(skyboxVAO);
-		glBindTexture(GL_TEXTURE_CUBE_MAP, skyboxTexture);
-		glDrawArrays(GL_TRIANGLES, 0, 36);
-		glDepthMask(GL_TRUE);//允许向深度缓冲区写入数据
-		glBindVertexArray(0);
-		glDepthFunc(GL_LESS);//深度测试  输入的深度值小于参考值，则通过
+#if IS_SKYBOX
+		project.Render(cubeShader, skyboxShader, cubeTexture, skyboxTexture,cubeVAO, skyboxVAO,camera);
+#else
+		//todo:是如何根据法线控制表面纹理的明暗处理的
+		project.Render(withoutShader, withShader, texture, normal, withoutVAO, withVAO, camera);
+#endif
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
-
+#if IS_SKYBOX
 	glDeleteVertexArrays(1, &cubeVAO);
 	glDeleteVertexArrays(1, &skyboxVAO);
 	glDeleteBuffers(1, &cubeVBO);
 	glDeleteBuffers(1, &skyboxVBO);
 	glDeleteTextures(1, &cubeTexture);
 	glDeleteTextures(1, &skyboxTexture);
-
+#else
+	glDeleteVertexArrays(1, &withoutVAO);
+	glDeleteVertexArrays(1, &withVAO);
+	glDeleteBuffers(1, &withVBO);
+	glDeleteBuffers(1, &withVAO);
+	glDeleteTextures(1, &texture);
+	glDeleteTextures(1, &normal);
+#endif
 	glfwTerminate();
 	return 0;
 }
@@ -154,7 +170,7 @@ void ProcessInput(GLFWwindow* window) {
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		camera.ProcessKeyboard(Enum_RIGHT, deltaTime);
 
-	//黄庆锐：新东西
+	//TODO：新东西
 	if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
 	{
 		// 开启混合

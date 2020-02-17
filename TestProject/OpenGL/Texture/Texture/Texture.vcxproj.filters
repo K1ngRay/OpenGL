@@ -19,6 +19,12 @@
     <Filter Include="资源文件\SkyboxImage">
       <UniqueIdentifier>{ec2d45cc-1278-4c79-a660-0eb25d4b012e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="资源文件\TangentImage">
+      <UniqueIdentifier>{89f300ec-3de5-499b-8ab4-d79ca9ef0882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\TangentShader">
+      <UniqueIdentifier>{7b9205ef-4e0c-46f7-a6ad-511a84dda250}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Shader.cpp">
@@ -53,6 +59,12 @@
     <ClInclude Include="Project.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="TangentMain.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cubemap.fs">
@@ -66,6 +78,18 @@
     </None>
     <None Include="skybox.vs">
       <Filter>资源文件\SkyboxShader</Filter>
+    </None>
+    <None Include="normal.vs">
+      <Filter>资源文件\TangentShader</Filter>
+    </None>
+    <None Include="normal.fs">
+      <Filter>资源文件\TangentShader</Filter>
+    </None>
+    <None Include="normalTangent.vs">
+      <Filter>资源文件\TangentShader</Filter>
+    </None>
+    <None Include="normalTangent.fs">
+      <Filter>资源文件\TangentShader</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +113,12 @@
     </Image>
     <Image Include="texture\skybox_snow\top.jpg">
       <Filter>资源文件\SkyboxImage</Filter>
+    </Image>
+    <Image Include="texture\cube_normal.jpg">
+      <Filter>资源文件\TangentImage</Filter>
+    </Image>
+    <Image Include="texture\cube_diffuse.jpg">
+      <Filter>资源文件\TangentImage</Filter>
     </Image>
   </ItemGroup>
 </Project>
