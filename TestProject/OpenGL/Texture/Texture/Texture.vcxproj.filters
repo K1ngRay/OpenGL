@@ -16,14 +16,29 @@
     <Filter Include="资源文件\SkyboxShader">
       <UniqueIdentifier>{e7d38ccc-366a-4bc7-a2a6-6878c3863fc7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="资源文件\SkyboxImage">
-      <UniqueIdentifier>{ec2d45cc-1278-4c79-a660-0eb25d4b012e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="资源文件\TangentImage">
-      <UniqueIdentifier>{89f300ec-3de5-499b-8ab4-d79ca9ef0882}</UniqueIdentifier>
-    </Filter>
     <Filter Include="资源文件\TangentShader">
       <UniqueIdentifier>{7b9205ef-4e0c-46f7-a6ad-511a84dda250}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\ShadowShader">
+      <UniqueIdentifier>{9b6814f4-d90c-40c8-8930-13a6153417ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\ShadowResourse">
+      <UniqueIdentifier>{c35d6d69-0140-40b2-9dbb-bd4dbb8f18e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\SkyboxResourse">
+      <UniqueIdentifier>{ec2d45cc-1278-4c79-a660-0eb25d4b012e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\TangentResourse">
+      <UniqueIdentifier>{89f300ec-3de5-499b-8ab4-d79ca9ef0882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\ShadowResourse\Texture">
+      <UniqueIdentifier>{caf85fb2-3c3f-41eb-ace3-976eeef3971b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\ShadowResourse\Model">
+      <UniqueIdentifier>{1b5b9620-0ecd-46a8-af13-ec994f0c3986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\MainHead">
+      <UniqueIdentifier>{4b24899e-58bf-4086-8cf2-b1a137872251}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -50,20 +65,23 @@
     <ClInclude Include="Camera.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SkyboxMain.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="stb\stb_image.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Project.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TangentMain.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyboxMain.h">
+      <Filter>头文件\MainHead</Filter>
+    </ClInclude>
+    <ClInclude Include="TangentMain.h">
+      <Filter>头文件\MainHead</Filter>
+    </ClInclude>
+    <ClInclude Include="Shadow.h">
+      <Filter>头文件\MainHead</Filter>
+    </ClInclude>
+    <ClInclude Include="Project.h">
+      <Filter>头文件\MainHead</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -91,34 +109,96 @@
     <None Include="normalTangent.fs">
       <Filter>资源文件\TangentShader</Filter>
     </None>
+    <None Include="model\character.mtl">
+      <Filter>资源文件\ShadowResourse\Model</Filter>
+    </None>
+    <None Include="debugDepthQuad.fs">
+      <Filter>资源文件\ShadowShader</Filter>
+    </None>
+    <None Include="debugDepthQuad.vs">
+      <Filter>资源文件\ShadowShader</Filter>
+    </None>
+    <None Include="DrawScene.fs">
+      <Filter>资源文件\ShadowShader</Filter>
+    </None>
+    <None Include="DrawScene.vs">
+      <Filter>资源文件\ShadowShader</Filter>
+    </None>
+    <None Include="shadowMap.fs">
+      <Filter>资源文件\ShadowShader</Filter>
+    </None>
+    <None Include="shadowMap.vs">
+      <Filter>资源文件\ShadowShader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="texture\CG_Sprite.jpg">
-      <Filter>资源文件\SkyboxImage</Filter>
+      <Filter>资源文件\SkyboxResourse</Filter>
     </Image>
     <Image Include="texture\skybox_snow\back.jpg">
-      <Filter>资源文件\SkyboxImage</Filter>
+      <Filter>资源文件\SkyboxResourse</Filter>
     </Image>
     <Image Include="texture\skybox_snow\bottom.jpg">
-      <Filter>资源文件\SkyboxImage</Filter>
+      <Filter>资源文件\SkyboxResourse</Filter>
     </Image>
     <Image Include="texture\skybox_snow\front.jpg">
-      <Filter>资源文件\SkyboxImage</Filter>
+      <Filter>资源文件\SkyboxResourse</Filter>
     </Image>
     <Image Include="texture\skybox_snow\left.jpg">
-      <Filter>资源文件\SkyboxImage</Filter>
+      <Filter>资源文件\SkyboxResourse</Filter>
     </Image>
     <Image Include="texture\skybox_snow\right.jpg">
-      <Filter>资源文件\SkyboxImage</Filter>
+      <Filter>资源文件\SkyboxResourse</Filter>
     </Image>
     <Image Include="texture\skybox_snow\top.jpg">
-      <Filter>资源文件\SkyboxImage</Filter>
+      <Filter>资源文件\SkyboxResourse</Filter>
     </Image>
     <Image Include="texture\cube_normal.jpg">
-      <Filter>资源文件\TangentImage</Filter>
+      <Filter>资源文件\TangentResourse</Filter>
     </Image>
     <Image Include="texture\cube_diffuse.jpg">
-      <Filter>资源文件\TangentImage</Filter>
+      <Filter>资源文件\TangentResourse</Filter>
     </Image>
+    <Image Include="texture\floor4.jpg">
+      <Filter>资源文件\ShadowResourse\Texture</Filter>
+    </Image>
+    <Image Include="texture\container.jpg">
+      <Filter>资源文件\ShadowResourse\Texture</Filter>
+    </Image>
+    <Image Include="texture\container2.jpg">
+      <Filter>资源文件\ShadowResourse\Texture</Filter>
+    </Image>
+    <Image Include="texture\floor.jpg">
+      <Filter>资源文件\ShadowResourse\Texture</Filter>
+    </Image>
+    <Image Include="texture\floor1.jpg">
+      <Filter>资源文件\ShadowResourse\Texture</Filter>
+    </Image>
+    <Image Include="texture\floor2.jpg">
+      <Filter>资源文件\ShadowResourse\Texture</Filter>
+    </Image>
+    <Image Include="model\font_grey.png">
+      <Filter>资源文件\ShadowResourse\Model</Filter>
+    </Image>
+    <Image Include="model\hat.jpg">
+      <Filter>资源文件\ShadowResourse\Model</Filter>
+    </Image>
+    <Image Include="model\skin.jpg">
+      <Filter>资源文件\ShadowResourse\Model</Filter>
+    </Image>
+    <Image Include="model\belt.jpg">
+      <Filter>资源文件\ShadowResourse\Model</Filter>
+    </Image>
+    <Image Include="model\eye.jpg">
+      <Filter>资源文件\ShadowResourse\Model</Filter>
+    </Image>
+    <Image Include="model\font_blue.png">
+      <Filter>资源文件\ShadowResourse\Model</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="model\character.obj">
+      <Filter>资源文件\ShadowResourse\Model</Filter>
+    </Object>
   </ItemGroup>
 </Project>

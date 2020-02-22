@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\Unity 3D\Projects\OpenGL\OpenGLLib\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Unity 3D\Projects\OpenGL\GLFW\glfw-3.3.bin.WIN32\lib-vc2017;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Unity 3D\Projects\OpenGL\OpenGLLib\include;D:\OpenGL\OpenGLLib\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Unity 3D\Projects\OpenGL\GLFW\glfw-3.3.bin.WIN32\lib-vc2017;D:\OpenGL\GLFW\glfw-3.3.bin.WIN32\lib-vc2017;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -132,6 +132,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Project.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="Shadow.h" />
     <ClInclude Include="SkyboxMain.h" />
     <ClInclude Include="stb\stb_image.h" />
     <ClInclude Include="TangentMain.h" />
@@ -140,23 +141,45 @@
   <ItemGroup>
     <None Include="cubemap.fs" />
     <None Include="cubemap.vs" />
+    <None Include="debugDepthQuad.fs" />
+    <None Include="debugDepthQuad.vs" />
+    <None Include="DrawScene.fs" />
+    <None Include="DrawScene.vs" />
+    <None Include="model\character.mtl" />
     <None Include="normal.fs" />
     <None Include="normal.vs" />
     <None Include="normalTangent.fs" />
     <None Include="normalTangent.vs" />
+    <None Include="shadowMap.fs" />
+    <None Include="shadowMap.vs" />
     <None Include="skybox.fs" />
     <None Include="skybox.vs" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="model\belt.jpg" />
+    <Image Include="model\eye.jpg" />
+    <Image Include="model\font_blue.png" />
+    <Image Include="model\font_grey.png" />
+    <Image Include="model\hat.jpg" />
+    <Image Include="model\skin.jpg" />
     <Image Include="texture\CG_Sprite.jpg" />
+    <Image Include="texture\container.jpg" />
+    <Image Include="texture\container2.jpg" />
     <Image Include="texture\cube_diffuse.jpg" />
     <Image Include="texture\cube_normal.jpg" />
+    <Image Include="texture\floor.jpg" />
+    <Image Include="texture\floor1.jpg" />
+    <Image Include="texture\floor2.jpg" />
+    <Image Include="texture\floor4.jpg" />
     <Image Include="texture\skybox_snow\back.jpg" />
     <Image Include="texture\skybox_snow\bottom.jpg" />
     <Image Include="texture\skybox_snow\front.jpg" />
     <Image Include="texture\skybox_snow\left.jpg" />
     <Image Include="texture\skybox_snow\right.jpg" />
     <Image Include="texture\skybox_snow\top.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="model\character.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

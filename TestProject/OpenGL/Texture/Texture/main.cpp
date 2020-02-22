@@ -1,4 +1,4 @@
-#define IS_SKYBOX false
+#define SWITCH_BIT 1
 
 #include<iostream>
 #include<glad/glad.h>
@@ -38,10 +38,12 @@ int main() {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-#if IS_SKYBOX
+#if SWITCH_BIT == 0
 	Skybox project;
-#else
+#elif SWITCH_BIT == 1
 	Tangent project;
+#elif SWITCH_BIT  == 2
+
 #endif
 	GLFWwindow* window = project.CreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, NULL, NULL);
 
@@ -66,7 +68,7 @@ int main() {
 	glEnable(GL_DEPTH_TEST); //开启深度测试，但到现在为止还不知道具体的用处
 
 	Texture textureClass;
-#if IS_SKYBOX
+#if SWITCH_BIT == 0
 	Shader cubeShader("cubemap.vs", "cubemap.fs");
 	if (!cubeShader.success) return 0;
 	Shader skyboxShader("skybox.vs", "skybox.fs");
@@ -98,7 +100,7 @@ int main() {
 	cubeShader.SetInt("texture1", 0);  //传入纹理
 	skyboxShader.Use();
 	skyboxShader.SetInt("skybox", 0);	//传入纹理
-#else 
+#elif SWITCH_BIT == 1
 	Shader withoutShader("normal.vs", "normal.fs");
 	if (!withoutShader.success) 
 		return 0;
@@ -115,6 +117,7 @@ int main() {
 	GLuint texture, normal;
 	texture = textureClass.LoadTextureFromFile("texture/cube_diffuse.jpg");
 	normal = textureClass.LoadTextureFromFile("texture/cube_normal.jpg");
+#elif SWITCH_BIT  == 2
 #endif
 
 	while (!glfwWindowShouldClose(window))
@@ -128,30 +131,33 @@ int main() {
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-#if IS_SKYBOX
+#if SWITCH_BIT == 0
 		project.Render(cubeShader, skyboxShader, cubeTexture, skyboxTexture,cubeVAO, skyboxVAO,camera);
-#else
+#elif SWITCH_BIT == 1
 		//todo:是如何根据法线控制表面纹理的明暗处理的
 		project.Render(withoutShader, withShader, texture, normal, withoutVAO, withVAO, camera);
+#elif SWITCH_BIT == 2
+
 #endif
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
-#if IS_SKYBOX
+#if SWITCH_BIT == 0
 	glDeleteVertexArrays(1, &cubeVAO);
 	glDeleteVertexArrays(1, &skyboxVAO);
 	glDeleteBuffers(1, &cubeVBO);
 	glDeleteBuffers(1, &skyboxVBO);
 	glDeleteTextures(1, &cubeTexture);
 	glDeleteTextures(1, &skyboxTexture);
-#else
+#elif SWITCH_BIT == 1
 	glDeleteVertexArrays(1, &withoutVAO);
 	glDeleteVertexArrays(1, &withVAO);
 	glDeleteBuffers(1, &withVBO);
 	glDeleteBuffers(1, &withVAO);
 	glDeleteTextures(1, &texture);
 	glDeleteTextures(1, &normal);
+#elif SWITCH_BIT == 2
 #endif
 	glfwTerminate();
 	return 0;
