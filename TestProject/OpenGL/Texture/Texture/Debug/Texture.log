@@ -1,12 +1,12 @@
 ﻿  main.cpp
-d:\unity 3d\projects\opengl\testproject\opengl\texture\texture\texture.h(60): warning C4018: “<”: 有符号/无符号不匹配
-d:\unity 3d\projects\opengl\testproject\opengl\texture\texture\skyboxmain.h(176): warning C4018: “<”: 有符号/无符号不匹配
-d:\unity 3d\projects\opengl\testproject\opengl\texture\texture\main.cpp(122): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-d:\unity 3d\projects\opengl\testproject\opengl\texture\texture\main.cpp(196): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-d:\unity 3d\projects\opengl\testproject\opengl\texture\texture\main.cpp(197): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-d:\unity 3d\projects\opengl\testproject\opengl\texture\texture\main.cpp(201): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-d:\unity 3d\projects\opengl\testproject\opengl\texture\texture\main.cpp(202): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-d:\unity 3d\projects\opengl\testproject\opengl\texture\texture\main.cpp(204): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-d:\unity 3d\projects\opengl\testproject\opengl\texture\texture\main.cpp(205): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-d:\unity 3d\projects\opengl\testproject\opengl\texture\texture\main.cpp(211): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
-  Texture.vcxproj -> D:\Unity 3D\Projects\OpenGL\TestProject\OpenGL\Texture\Debug\Texture.exe
+d:\opengl\testproject\opengl\texture\texture\texture.h(60): warning C4018: “<”: 有符号/无符号不匹配
+d:\opengl\testproject\opengl\texture\texture\skyboxmain.h(176): warning C4018: “<”: 有符号/无符号不匹配
+d:\opengl\testproject\opengl\texture\texture\main.cpp(125): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\texture\texture\main.cpp(202): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\texture\texture\main.cpp(203): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\texture\texture\main.cpp(207): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\texture\texture\main.cpp(208): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\texture\texture\main.cpp(210): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\texture\texture\main.cpp(211): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\texture\texture\main.cpp(217): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+  Texture.vcxproj -> D:\OpenGL\TestProject\OpenGL\Texture\Debug\Texture.exe

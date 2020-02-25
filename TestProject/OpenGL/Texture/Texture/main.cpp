@@ -1,4 +1,4 @@
-#define SWITCH_BIT 1
+#define SWITCH_BIT 2
 
 #include<iostream>
 #include<glad/glad.h>
@@ -13,6 +13,7 @@
 #include "Texture.h"
 #include "SkyboxMain.h"
 #include "TangentMain.h"
+#include "Shadow.h"
 
 using namespace std;
 using namespace glm;
@@ -43,7 +44,7 @@ int main() {
 #elif SWITCH_BIT == 1
 	Tangent project;
 #elif SWITCH_BIT  == 2
-
+	Shadow project;
 #endif
 	GLFWwindow* window = project.CreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, NULL, NULL);
 
@@ -118,6 +119,34 @@ int main() {
 	texture = textureClass.LoadTextureFromFile("texture/cube_diffuse.jpg");
 	normal = textureClass.LoadTextureFromFile("texture/cube_normal.jpg");
 #elif SWITCH_BIT  == 2
+	Shader sceneShader = Shader("DrawScene.vs", "DrawScene.fs");
+	Shader shadowMapShader = Shader("shadowMap.vs", "shaderMap.fs");
+	Shader debugQuadShader = Shader("debugDepthQuad.vs", "debugDepthQuad.fs");
+
+	GLuint sceneVAO, sceneVBO, planeVAO, planeVBO, depthMapFBO, depthMap;
+	vec2 resolution = vec2(1024, 1024);
+	project.InitFBOAndTexture(depthMapFBO, depthMap,resolution.x,resolution.y);
+	project.InitSceneVAO(sceneVAO, sceneVBO);
+	project.InitPlaneVAO(planeVAO, planeVBO); //TODO:可以和上面换换试试
+
+	//纹理载入
+	sceneShader.Use();//todo:如果没有glDrawArrays(),这个use()有什么用
+	unsigned int diffuseMap, floor;
+	diffuseMap = Texture::LoadTextureFromFile("texture/container2.jpg");
+	floor = Texture::LoadTextureFromFile("texture/floor2.jpg");
+	sceneShader.SetInt("diffuseTexture", 0);
+	sceneShader.SetInt("depthMap", 1);
+
+	//TODO:下面开始神仙操作了
+	GLfloat near_plane = 1.0f, far_plane = 7.5f;  // 视锥的远近平面
+	vec3 lightPos(-3.0f, 4.0f, -1.0f);
+
+	mat4 lightProjection = ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);// 正交投影
+	mat4 lightView = lookAt(lightPos, vec3(0), vec3(0.0f, 1.0f, 0.0f));// 从光源的位置看向场景中央
+	mat4 lightPV = lightProjection * lightView;
+
+	debugQuadShader.Use();
+	debugQuadShader.SetInt("shadowMap", 0);
 #endif
 
 	while (!glfwWindowShouldClose(window))

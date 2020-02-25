@@ -145,7 +145,6 @@
     <None Include="debugDepthQuad.vs" />
     <None Include="DrawScene.fs" />
     <None Include="DrawScene.vs" />
-    <None Include="model\character.mtl" />
     <None Include="normal.fs" />
     <None Include="normal.vs" />
     <None Include="normalTangent.fs" />
@@ -177,9 +176,6 @@
     <Image Include="texture\skybox_snow\left.jpg" />
     <Image Include="texture\skybox_snow\right.jpg" />
     <Image Include="texture\skybox_snow\top.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Object Include="model\character.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

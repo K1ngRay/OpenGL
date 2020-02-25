@@ -109,9 +109,6 @@
     <None Include="normalTangent.fs">
       <Filter>资源文件\TangentShader</Filter>
     </None>
-    <None Include="model\character.mtl">
-      <Filter>资源文件\ShadowResourse\Model</Filter>
-    </None>
     <None Include="debugDepthQuad.fs">
       <Filter>资源文件\ShadowShader</Filter>
     </None>
@@ -195,10 +192,5 @@
     <Image Include="model\font_blue.png">
       <Filter>资源文件\ShadowResourse\Model</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <Object Include="model\character.obj">
-      <Filter>资源文件\ShadowResourse\Model</Filter>
-    </Object>
   </ItemGroup>
 </Project>
