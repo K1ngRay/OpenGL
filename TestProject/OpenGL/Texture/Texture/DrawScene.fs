@@ -8,14 +8,14 @@ in vec4 LightSpaceFragPos;
 
 uniform vec3 viewPos;
 uniform vec3 lightPos;
-uniform sampler2D duffuseTexture;
+uniform sampler2D diffuseTexture;
 uniform sampler2D depthMap;
 
 //计算阴影
 float ShadowCalculation(vec4 fragPosLightSpace){
 	vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w; //TODO:什么操作？？？
 	projCoords = projCoords * 0.5 + 0.5;
-	float closestDepth = texture(depthMap,projCoords.xyz).r; //TODO:啥子哟？
+	float closestDepth = texture(depthMap,projCoords.xy).r; //TODO:啥子哟？
 	float currentDepth = projCoords.z;
 	vec3 normal = normalize(Normal);
 	vec3 lightDir = normalize(lightPos - FragPos);

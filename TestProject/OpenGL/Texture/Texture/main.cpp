@@ -26,7 +26,13 @@ void ProcessInput(GLFWwindow* window);
 const unsigned int SCREEN_WIDTH = 1280;
 const unsigned int SCREEN_HEIGHT = 720;
 
+#if SWITCH_BIT == 0
 Camera camera(vec3(0.0f,0.0f,3.0f));
+#elif SWITCH_BIT == 1
+Camera camera(vec3(0.0f, 0.0f, 3.0f));
+#else
+Camera camera(glm::vec3(-2.0f, 3.5f, 4.0f), glm::vec3(0, 1, 0), -60, -45);
+#endif
 float lastX = (float)SCREEN_WIDTH / 2.0f, lastY = (float)SCREEN_HEIGHT / 2.0f; // 设置鼠标初始位置为屏幕中心
 bool firstMouse = true;
 
@@ -119,31 +125,35 @@ int main() {
 	texture = textureClass.LoadTextureFromFile("texture/cube_diffuse.jpg");
 	normal = textureClass.LoadTextureFromFile("texture/cube_normal.jpg");
 #elif SWITCH_BIT  == 2
-	Shader sceneShader = Shader("DrawScene.vs", "DrawScene.fs");
-	Shader shadowMapShader = Shader("shadowMap.vs", "shaderMap.fs");
+	Shader cubeShader = Shader("DrawScene.vs", "DrawScene.fs");
+	Shader shadowMapShader = Shader("shadowMap.vs", "shadowMap.fs");
 	Shader debugQuadShader = Shader("debugDepthQuad.vs", "debugDepthQuad.fs");
 
-	GLuint sceneVAO, sceneVBO, planeVAO, planeVBO, depthMapFBO, depthMap;
-	vec2 resolution = vec2(1024, 1024);
+	GLuint cubeVAO, cubeVBO, planeVAO, planeVBO, depthMapFBO, depthMap;
+	int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
+	vec2 resolution = vec2(SHADOW_WIDTH, SHADOW_HEIGHT);
 	project.InitFBOAndTexture(depthMapFBO, depthMap,resolution.x,resolution.y);
-	project.InitSceneVAO(sceneVAO, sceneVBO);
+	// 指定当前视口尺寸(前两个参数为左下角位置，后两个参数是渲染窗口宽、高)
+	glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+	project.InitCubeVAO(cubeVAO, cubeVBO);
 	project.InitPlaneVAO(planeVAO, planeVBO); //TODO:可以和上面换换试试
 
 	//纹理载入
-	sceneShader.Use();//todo:如果没有glDrawArrays(),这个use()有什么用
+	cubeShader.Use();//todo:如果没有glDrawArrays(),这个use()有什么用
 	unsigned int diffuseMap, floor;
 	diffuseMap = Texture::LoadTextureFromFile("texture/container2.jpg");
 	floor = Texture::LoadTextureFromFile("texture/floor2.jpg");
-	sceneShader.SetInt("diffuseTexture", 0);
-	sceneShader.SetInt("depthMap", 1);
+	cubeShader.SetInt("diffuseTexture", 0);
+	cubeShader.SetInt("depthMap", 1);
 
 	//TODO:下面开始神仙操作了
 	GLfloat near_plane = 1.0f, far_plane = 7.5f;  // 视锥的远近平面
 	vec3 lightPos(-3.0f, 4.0f, -1.0f);
 
 	mat4 lightProjection = ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);// 正交投影
-	mat4 lightView = lookAt(lightPos, vec3(0), vec3(0.0f, 1.0f, 0.0f));// 从光源的位置看向场景中央
-	mat4 lightPV = lightProjection * lightView;
+	mat4 lightView = lookAt(lightPos, vec3(0.0f), vec3(0.0f, 1.0f, 0.0f));// 从光源的位置看向场景中央
+	mat4 lightPV = lightProjection * lightView; //// 将世界空间变换到光空间
 
 	debugQuadShader.Use();
 	debugQuadShader.SetInt("shadowMap", 0);
@@ -167,6 +177,7 @@ int main() {
 		project.Render(withoutShader, withShader, texture, normal, withoutVAO, withVAO, camera);
 #elif SWITCH_BIT == 2
 
+		project.Render(cubeShader, shadowMapShader, debugQuadShader, cubeVAO, planeVAO, depthMapFBO, depthMap, camera, lightPV, lightPos, diffuseMap, floor, SHADOW_WIDTH, SHADOW_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, currentFrame);
 #endif
 
 		glfwSwapBuffers(window);
@@ -187,6 +198,10 @@ int main() {
 	glDeleteTextures(1, &texture);
 	glDeleteTextures(1, &normal);
 #elif SWITCH_BIT == 2
+	glDeleteVertexArrays(1, &cubeVAO);
+	glDeleteVertexArrays(1, &planeVAO);
+	glDeleteBuffers(1, &cubeVBO);
+	glDeleteBuffers(1, &planeVBO);
 #endif
 	glfwTerminate();
 	return 0;
