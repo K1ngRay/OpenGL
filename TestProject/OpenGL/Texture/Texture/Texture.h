@@ -6,7 +6,7 @@
 class Texture
 {
 public:
-	//TODO:为什么这里要写静态的
+	//写成静态的，就不用创建对象了
 	static unsigned int LoadTextureFromFile(const char* path)
 	{
 		unsigned int texture_id;
@@ -32,14 +32,26 @@ public:
 			}
 
 			glBindTexture(GL_TEXTURE_2D, texture_id);
-			//TODO：调试看看data里面存了什么,还有这两句是什么意思
-			glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-			glGenerateMipmap(GL_TEXTURE_2D);
+			glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data); //指定一个二维的纹理图片
+			glGenerateMipmap(GL_TEXTURE_2D); //为纹理对象生成一组完整的mipmap。 unity mipmap：https://www.cnblogs.com/MrZivChu/p/mipmap.html
 
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
+			//纹理过滤函数glTexParameteri()
+			//图象从纹理图象空间映射到帧缓冲图象空间(映射需要重新构造纹理图像, 这样就会造成应用到多边形上的图像失真), 这时就可用glTexParmeteri()函数来确定如何把纹理象素映射成像素.
+			//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			//GL_TEXTURE_WRAP_S 表示在 s 轴上纹理的环绕方式
+			//GL_TEXTURE_WRAP_T 表示在 T 轴上纹理的环绕方式
+			//这里 s 和 t等价于平面纹理图片的 x 轴和 y 轴			//GL_REPEAT 是表示纹理重复出现，它也是在不设置的情况下默认环绕方式。GL_MIRRORED_REPEAT 也是重复图片，但是他表示以镜像方式重复出现；
+			//GL_CLAMP_TO_EDGE 表示纹理坐标会被约束在 0 - 1 之间，超出的部分会重复纹理坐标的边缘，产生一种边缘被拉伸的效果。这种环绕方式通常会在我们设置纹理坐标超过 0 - 1 的范围时被使用到。			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+			//纹理过滤的介绍：https://blog.csdn.net/u013746357/article/details/90723268
+			//设置纹理在缩小和放大时的过滤方式
+			//过滤方式我们主要使用的有两种，一种是 GL_NEAREST 即临近过滤，这种过滤方法会产生颗粒状的图案，但是也能更清晰的看到组成纹理的像素。
+			//GL_LINEAR 即线性过滤，它能够产生更平滑的图案，但是也有更真实的输出。
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+
 		}
 		else
 		{
@@ -59,7 +71,7 @@ public:
 		int width, height, channels;
 		for (int i = 0; i < faces.size(); i++)
 		{
-			stbi_set_flip_vertically_on_load(false);	//为什么这里就不用旋转y轴了呢
+			stbi_set_flip_vertically_on_load(false);	//为什么这里就不用旋转y轴了呢:https://blog.csdn.net/qjh5606/article/details/89847297 目前可以简单的理解为天空盒不用翻转
 			stbi_uc *data = stbi_load(faces[i].c_str(), &width, &height, &channels, 0);
 			if (data)
 			{

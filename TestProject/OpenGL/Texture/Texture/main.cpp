@@ -1,4 +1,4 @@
-#define SWITCH_BIT 2
+#define SWITCH_BIT 1
 
 #include<iostream>
 #include<glad/glad.h>
@@ -27,7 +27,7 @@ const unsigned int SCREEN_WIDTH = 1280;
 const unsigned int SCREEN_HEIGHT = 720;
 
 #if SWITCH_BIT == 0
-Camera camera(vec3(0.0f,0.0f,3.0f));
+Camera camera(vec3(0.0f,0.0f,5.0f));
 #elif SWITCH_BIT == 1
 Camera camera(vec3(0.0f, 0.0f, 3.0f));
 #else
@@ -63,8 +63,10 @@ int main() {
 
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, FrameBufferSizeCallback);
+#if SWITCH_BIT != 1
 	glfwSetCursorPosCallback(window, MouseCallback);
 	glfwSetScrollCallback(window, ScrollCallback);
+#endif
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
@@ -72,7 +74,7 @@ int main() {
 		return -1;
 	}
 
-	glEnable(GL_DEPTH_TEST); //开启深度测试，但到现在为止还不知道具体的用处
+	glEnable(GL_DEPTH_TEST); //开启深度测试，剔除后向面
 
 	Texture textureClass;
 #if SWITCH_BIT == 0
@@ -126,8 +128,11 @@ int main() {
 	normal = textureClass.LoadTextureFromFile("texture/cube_normal.jpg");
 #elif SWITCH_BIT  == 2
 	Shader cubeShader = Shader("DrawScene.vs", "DrawScene.fs");
+	if (!cubeShader.success) return 0;
 	Shader shadowMapShader = Shader("shadowMap.vs", "shadowMap.fs");
+	if (!shadowMapShader.success) return 0;
 	Shader debugQuadShader = Shader("debugDepthQuad.vs", "debugDepthQuad.fs");
+	if (!debugQuadShader.success) return 0;
 
 	GLuint cubeVAO, cubeVBO, planeVAO, planeVBO, depthMapFBO, depthMap;
 	int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
@@ -219,20 +224,6 @@ void ProcessInput(GLFWwindow* window) {
 		camera.ProcessKeyboard(Enum_LEFT, deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		camera.ProcessKeyboard(Enum_RIGHT, deltaTime);
-
-	//TODO：新东西
-	if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
-	{
-		// 开启混合
-		glEnable(GL_BLEND);
-		//设置混合的源和目标因子
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	}
-	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
-	{
-		// 关闭混合
-		glDisable(GL_BLEND);
-	}
 }
 
 void FrameBufferSizeCallback(GLFWwindow* window, int width, int height) {

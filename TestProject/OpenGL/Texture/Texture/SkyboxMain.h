@@ -19,16 +19,16 @@ public:
 	{
 		float vertices[] = { //立方体数组
 		   -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-		   0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-		   0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-		   0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		    0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+		    0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		    0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
 		   -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
 		   -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
 
 		   -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-		   0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-		   0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-		   0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+		    0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+		    0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+		    0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
 		   -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
 		   -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
 
@@ -39,24 +39,24 @@ public:
 		   -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
 		   -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
 
-		   0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-		   0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-		   0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-		   0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-		   0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-		   0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+		    0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+		    0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		    0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+		    0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+		    0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+		    0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
 
 		   -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-		   0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
-		   0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-		   0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+		    0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+		    0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+		    0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
 		   -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
 		   -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
 
 		   -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-		   0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-		   0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-		   0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+		    0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+		    0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+		    0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
 		   -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
 		   -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
 		};
@@ -79,9 +79,9 @@ public:
 		float skybox_vertices[] = {   //天空盒顶点数组
 			-1.0f,  1.0f, -1.0f,
 			-1.0f, -1.0f, -1.0f,
-			1.0f, -1.0f, -1.0f,
-			1.0f, -1.0f, -1.0f,
-			1.0f,  1.0f, -1.0f,
+			 1.0f, -1.0f, -1.0f,
+			 1.0f, -1.0f, -1.0f,
+			 1.0f,  1.0f, -1.0f,
 			-1.0f,  1.0f, -1.0f,
 
 			-1.0f, -1.0f,  1.0f,
@@ -91,33 +91,33 @@ public:
 			-1.0f,  1.0f,  1.0f,
 			-1.0f, -1.0f,  1.0f,
 
-			1.0f, -1.0f, -1.0f,
-			1.0f, -1.0f,  1.0f,
-			1.0f,  1.0f,  1.0f,
-			1.0f,  1.0f,  1.0f,
-			1.0f,  1.0f, -1.0f,
-			1.0f, -1.0f, -1.0f,
+			 1.0f, -1.0f, -1.0f,
+			 1.0f, -1.0f,  1.0f,
+			 1.0f,  1.0f,  1.0f,
+			 1.0f,  1.0f,  1.0f,
+			 1.0f,  1.0f, -1.0f,
+			 1.0f, -1.0f, -1.0f,
 
 			-1.0f, -1.0f,  1.0f,
 			-1.0f,  1.0f,  1.0f,
-			1.0f,  1.0f,  1.0f,
-			1.0f,  1.0f,  1.0f,
-			1.0f, -1.0f,  1.0f,
+			 1.0f,  1.0f,  1.0f,
+			 1.0f,  1.0f,  1.0f,
+			 1.0f, -1.0f,  1.0f,
 			-1.0f, -1.0f,  1.0f,
 
 			-1.0f,  1.0f, -1.0f,
-			1.0f,  1.0f, -1.0f,
-			1.0f,  1.0f,  1.0f,
-			1.0f,  1.0f,  1.0f,
+			 1.0f,  1.0f, -1.0f,
+			 1.0f,  1.0f,  1.0f,
+			 1.0f,  1.0f,  1.0f,
 			-1.0f,  1.0f,  1.0f,
 			-1.0f,  1.0f, -1.0f,
 
 			-1.0f, -1.0f, -1.0f,
 			-1.0f, -1.0f,  1.0f,
-			1.0f, -1.0f, -1.0f,
-			1.0f, -1.0f, -1.0f,
+			 1.0f, -1.0f, -1.0f,
+			 1.0f, -1.0f, -1.0f,
 			-1.0f, -1.0f,  1.0f,
-			1.0f, -1.0f,  1.0f
+			 1.0f, -1.0f,  1.0f
 		};
 
 		glGenBuffers(1, &vbo);
@@ -130,11 +130,12 @@ public:
 		glEnableVertexAttribArray(0);
 	}
 
+	///已废弃不使用
 	void InitCubeTexture(GLuint &texture) {
 		glGenTextures(1, &texture);
 		glBindTexture(GL_TEXTURE_2D, texture);
 
-		//TODO：要好好看
+		//在Texture.h中有详细介绍
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -146,7 +147,7 @@ public:
 
 		if (data)
 		{
-			//TODO：调试看看data里面存了什么,还有这两句是什么意思
+			//Texture.h有介绍
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 			glGenerateMipmap(GL_TEXTURE_2D);
 		}
@@ -158,6 +159,7 @@ public:
 
 	}
 
+	///已废弃不使用
 	void InitSkyboxTexture(GLuint &texture) {
 		vector<string> faces
 		{
@@ -175,7 +177,7 @@ public:
 		int width, height, channels;
 		for (int i = 0; i < faces.size(); i++)
 		{
-			stbi_set_flip_vertically_on_load(false);	//为什么这里就不用旋转y轴了呢
+			stbi_set_flip_vertically_on_load(false);	//为什么这里就不用旋转y轴了呢，Texture.h有解释
 			stbi_uc *data = stbi_load(faces[i].c_str(), &width, &height, &channels, 0);
 			if (data)
 			{
@@ -187,7 +189,7 @@ public:
 			}
 			stbi_image_free(data);
 		}
-		//TODO：好好看
+		//Texture.h有解释
 		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -196,11 +198,10 @@ public:
 	}
 
 	void Render(Shader &cubeShader,Shader &skyboxShader,GLuint &cubeTex,GLuint &skyboxTex,GLuint &cubeVAO,GLuint &skyboxVAO,Camera &camera) {
-		glActiveTexture(GL_TEXTURE0); //以前没有的，要好好看
+		glActiveTexture(GL_TEXTURE0); //指定要激活的纹理单元，纹理单元的数量依赖于实现，但必须至少为8
 		glBindTexture(GL_TEXTURE_2D, cubeTex);
 
 		cubeShader.Use();
-
 		mat4 model(1);
 		model = glm::rotate(model, (float)glfwGetTime(), vec3(0.5f, 1.0f, 0.0f));
 		mat4 view(1);
@@ -212,24 +213,24 @@ public:
 		cubeShader.SetMat4("view", view);
 		cubeShader.SetMat4("projection", projection);
 
-		glBindVertexArray(cubeVAO);	//TODO：为什么uv不用绑
+		glBindVertexArray(cubeVAO);	//通过定义指针，让shader自动区分坐标点和uv
 		glDrawArrays(GL_TRIANGLES, 0, 36);
-		glBindVertexArray(0); //TODO：忘记怎么解绑了
+		glBindVertexArray(0); //解绑
 
-		//TODO：新内容
-		glDepthFunc(GL_LEQUAL);//深度测试  输入的深度值小于或等于参考值，则通过
+		//TODO：没看懂，估摸是因为片元着色器的xyww/w，要让w/w可以显示出来，又不想把天空盒的深度写进缓冲区
+		glDepthFunc(GL_LEQUAL);//深度测试（初始值为GL_LESS）  输入的深度值小于或等于参考值，则通过
 		glDepthMask(GL_FALSE);//禁止向深度缓冲区写入数据
 
 		skyboxShader.Use();
-		view = mat4(mat3(camera.GetViewMatrix()));// remove translation from the view matrix
+		view = mat4(mat3(camera.GetViewMatrix()));// 去除view位移，相当于天空盒与摄像机的中心一致。因为矩阵的位移信息是放在第四列的，所以去掉第四列的位移信息就可以保持中心点一致
 		skyboxShader.SetMat4("view", view);
 		skyboxShader.SetMat4("projection", projection);
 
 		glBindVertexArray(skyboxVAO);
 		glBindTexture(GL_TEXTURE_CUBE_MAP, skyboxTex);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
-		glDepthMask(GL_TRUE);//允许向深度缓冲区写入数据
 		glBindVertexArray(0);
+		glDepthMask(GL_TRUE);//允许向深度缓冲区写入数据
 		glDepthFunc(GL_LESS);//深度测试  输入的深度值小于参考值，则通过
 
 	}

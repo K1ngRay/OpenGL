@@ -18,7 +18,7 @@ const float defYaw = -90.0f; //偏航角
 const float defPicth = 0.0f; //俯仰角
 const float defSpeed = 2.5f; //速度
 const float defSensitivity = 0.1f; //灵敏度
-const float defZoom = 45.0f; //视角
+const float defZoom = 60.0f; //视角
 
 class Camera
 {
