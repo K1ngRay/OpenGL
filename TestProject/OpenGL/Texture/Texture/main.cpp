@@ -106,7 +106,7 @@ int main() {
 	skyboxTexture = textureClass.LoadTexturesFromFile(faces);
 
 	cubeShader.Use();
-	cubeShader.SetInt("texture1", 0);  //传入纹理
+	cubeShader.SetInt("texture1", 1);  //传入纹理
 	skyboxShader.Use();
 	skyboxShader.SetInt("skybox", 0);	//传入纹理
 #elif SWITCH_BIT == 1
@@ -123,9 +123,15 @@ int main() {
 	project.InitCubeVAOWithTangent(withVAO, withVBO);
 
 	//初始化纹理
-	GLuint texture, normal;
-	texture = textureClass.LoadTextureFromFile("texture/cube_diffuse.jpg");
-	normal = textureClass.LoadTextureFromFile("texture/cube_normal.jpg");
+	unsigned int texture, normal;
+	texture = Texture::LoadTextureFromFile("texture/cube_diffuse.jpg");
+	normal = Texture::LoadTextureFromFile("texture/cube_normal.jpg");
+
+	//TODO：为什么在这里直接赋值，而在Render里面不再继续赋值会显示不对呢？
+	//withoutShader.SetInt("materialTex", 0);
+	//withoutShader.SetInt("normalTex", 1);
+	//withShader.SetInt("materialTex", 2);
+	//withShader.SetInt("normalTex", 3);
 #elif SWITCH_BIT  == 2
 	Shader cubeShader = Shader("DrawScene.vs", "DrawScene.fs");
 	if (!cubeShader.success) return 0;
@@ -158,7 +164,7 @@ int main() {
 
 	mat4 lightProjection = ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);// 正交投影
 	mat4 lightView = lookAt(lightPos, vec3(0.0f), vec3(0.0f, 1.0f, 0.0f));// 从光源的位置看向场景中央
-	mat4 lightPV = lightProjection * lightView; //// 将世界空间变换到光空间
+	mat4 lightPV = lightProjection * lightView; // 将世界空间变换到光空间
 
 	debugQuadShader.Use();
 	debugQuadShader.SetInt("shadowMap", 0);
@@ -178,10 +184,8 @@ int main() {
 #if SWITCH_BIT == 0
 		project.Render(cubeShader, skyboxShader, cubeTexture, skyboxTexture,cubeVAO, skyboxVAO,camera);
 #elif SWITCH_BIT == 1
-		//todo:是如何根据法线控制表面纹理的明暗处理的
 		project.Render(withoutShader, withShader, texture, normal, withoutVAO, withVAO, camera);
 #elif SWITCH_BIT == 2
-
 		project.Render(cubeShader, shadowMapShader, debugQuadShader, cubeVAO, planeVAO, depthMapFBO, depthMap, camera, lightPV, lightPos, diffuseMap, floor, SHADOW_WIDTH, SHADOW_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT, currentFrame);
 #endif
 

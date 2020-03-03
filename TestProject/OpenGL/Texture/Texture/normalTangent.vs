@@ -16,8 +16,7 @@ uniform mat4 projection;
 
 void main(){
 	gl_Position = projection * view * model * vec4(aPos,1.0);
-	vs_out.FragPos = vec3(model * vec4(aPos,1.0)); //TODO:没看懂
-	// Normal = mat3(model) * aNormal;
+	vs_out.FragPos = vec3(model * vec4(aPos,1.0)); //据说这是从局部坐标转成世界坐标
 	vs_out.TexCoords = aTexCoords;
 	//计算切线空间所需要的TBN矩阵
 	vec3 T = normalize(vec3(model * vec4(aTangent,0.0)));

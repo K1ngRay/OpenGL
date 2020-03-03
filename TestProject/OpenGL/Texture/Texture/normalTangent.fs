@@ -27,9 +27,9 @@ void main(){
 	vec3 viewDir = normalize(viewPosition - fs_in.FragPos);
 
 	vec3 dirLight = normalize(-directLight);
-	float diffFactor = max(dot(normal,dirLight),0.0); //TODO:点乘的几何意义忘了
-	vec3 halfway = normalize(dirLight + viewDir);
-	float specFactor = pow(max(dot(halfway,normal),0.0),32);
+	float diffFactor = max(dot(normal,dirLight),0.0); 
+	vec3 halfway = normalize(dirLight + viewDir); //高光反射的近似计算 https://www.icourse163.org/learn/HUST-1003636001#/learn/content?type=detail&id=1211820080&cid=1214742135
+	float specFactor = pow(max(dot(halfway,normal),0.0),32); //默认高光系数为32
 
 	vec3 color = vec3(texture(materialTex,fs_in.TexCoords));
 	vec3 ambient = color * ambientLight;

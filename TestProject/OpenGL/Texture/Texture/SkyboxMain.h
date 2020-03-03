@@ -198,7 +198,10 @@ public:
 	}
 
 	void Render(Shader &cubeShader,Shader &skyboxShader,GLuint &cubeTex,GLuint &skyboxTex,GLuint &cubeVAO,GLuint &skyboxVAO,Camera &camera) {
-		glActiveTexture(GL_TEXTURE0); //指定要激活的纹理单元，纹理单元的数量依赖于实现，但必须至少为8
+		//一个sampler2D要委托一个GL_TEXTURE去关联GL_TEXTURE_2D
+		//GL_TEXTURE_2D再关联一个纹理
+		//从而使sampler2D能与该纹理关联
+		glActiveTexture(GL_TEXTURE0); //指定要激活的纹理单元，其实在这里可以不写的，只有一张2D贴图的话，默认GL_TEXTURE0
 		glBindTexture(GL_TEXTURE_2D, cubeTex);
 
 		cubeShader.Use();
