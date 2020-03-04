@@ -11,12 +11,12 @@ out vec4 LightSpaceFragPos;
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
-uniform mat4 lightPV; //TODO:这个是个啥
+uniform mat4 lightPV; //光源空间矩阵
 
 void main(){
 	FragPos = vec3(model * vec4(aPos,1.0));
 	Normal = mat3(transpose(inverse(model))) * aNormal;//TODO:不懂这是啥数学逻辑
 	TexCoords = aTexCoords;
 	LightSpaceFragPos = lightPV * vec4(FragPos,1.0);
-	gl_Position = projection * view * vec4(FragPos,1.0);//TODO:最后这个乘数应该可以换成 * model * vec4(aPos,1.0)
+	gl_Position = projection * view * vec4(FragPos,1.0);//最后这个乘数应该可以换成 * model * vec4(aPos,1.0)
 }

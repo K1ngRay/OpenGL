@@ -16,16 +16,16 @@ public:
 		float cubeVertices[] = {
 			//  ---- 位置 ----       ---- 法线 ----   - 纹理坐标 -
 			-1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.0f, 0.0f,
-			1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.5f, 0.5f,
-			1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.5f, 0.0f,
-			1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.5f, 0.5f,
+			 1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.5f, 0.5f,
+			 1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.5f, 0.0f,
+			 1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.5f, 0.5f,
 			-1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.0f, 0.0f,
 			-1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.0f, 0.5f,
 
 			-1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f, 0.0f,
-			1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.5f, 0.0f,
-			1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.5f, 0.5f,
-			1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.5f, 0.5f,
+			 1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.5f, 0.0f,
+			 1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.5f, 0.5f,
+			 1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.5f, 0.5f,
 			-1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f, 0.5f,
 			-1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f, 0.0f,
 
@@ -36,24 +36,24 @@ public:
 			-1.0f, -1.0f,  1.0f, -1.0f,  0.0f,  0.0f, 0.0f, 0.0f,
 			-1.0f,  1.0f,  1.0f, -1.0f,  0.0f,  0.0f, 0.5f, 0.0f,
 
-			1.0f,  1.0f,  1.0f,  1.0f,  0.0f,  0.0f, 0.5f, 0.0f,
-			1.0f, -1.0f, -1.0f,  1.0f,  0.0f,  0.0f, 0.0f, 0.5f,
-			1.0f,  1.0f, -1.0f,  1.0f,  0.0f,  0.0f, 0.5f, 0.5f,
-			1.0f, -1.0f, -1.0f,  1.0f,  0.0f,  0.0f, 0.0f, 0.5f,
-			1.0f,  1.0f,  1.0f,  1.0f,  0.0f,  0.0f, 0.5f, 0.0f,
-			1.0f, -1.0f,  1.0f,  1.0f,  0.0f,  0.0f, 0.0f, 0.0f,
+			 1.0f,  1.0f,  1.0f,  1.0f,  0.0f,  0.0f, 0.5f, 0.0f,
+			 1.0f, -1.0f, -1.0f,  1.0f,  0.0f,  0.0f, 0.0f, 0.5f,
+			 1.0f,  1.0f, -1.0f,  1.0f,  0.0f,  0.0f, 0.5f, 0.5f,
+			 1.0f, -1.0f, -1.0f,  1.0f,  0.0f,  0.0f, 0.0f, 0.5f,
+			 1.0f,  1.0f,  1.0f,  1.0f,  0.0f,  0.0f, 0.5f, 0.0f,
+			 1.0f, -1.0f,  1.0f,  1.0f,  0.0f,  0.0f, 0.0f, 0.0f,
 
 			-1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f, 0.0f, 0.5f,
-			1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f, 0.5f, 0.5f,
-			1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f, 0.5f, 0.0f,
-			1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f, 0.5f, 0.0f,
+			 1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f, 0.5f, 0.5f,
+			 1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f, 0.5f, 0.0f,
+			 1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f, 0.5f, 0.0f,
 			-1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f, 0.0f, 0.0f,
 			-1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f, 0.0f, 0.5f,
 
 			-1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f, 0.0f, 0.5f,
-			1.0f,  1.0f , 1.0f,  0.0f,  1.0f,  0.0f, 0.5f, 0.0f,
-			1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f, 0.5f, 0.5f,
-			1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f, 0.5f, 0.0f,
+			 1.0f,  1.0f , 1.0f,  0.0f,  1.0f,  0.0f, 0.5f, 0.0f,
+			 1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f, 0.5f, 0.5f,
+			 1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f, 0.5f, 0.0f,
 			-1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f, 0.0f, 0.5f,
 			-1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f, 0.0f, 0.0f
 		};
@@ -77,13 +77,14 @@ public:
 	void InitPlaneVAO(GLuint &vao, GLuint &vbo) {
 		//地板数据
 		float planeVertices[] = {
-			5.0f, -0.5f,  5.0f,  0.0f, 1.0f, 0.0f,  1.0f,  0.0f,
-			-5.0f, -0.5f,  5.0f,  0.0f, 1.0f, 0.0f,   0.0f,  0.0f,
-			-5.0f, -0.5f, -5.0f,  0.0f, 1.0f, 0.0f,   0.0f, 1.0f,
+			//  ---- 位置 ----     ---- 法线 ----    - 纹理坐标 -
+			 5.0f, -0.5f,  5.0f,  0.0f, 1.0f, 0.0f,  1.0f,  0.0f,
+			-5.0f, -0.5f,  5.0f,  0.0f, 1.0f, 0.0f,  0.0f,  0.0f,
+			-5.0f, -0.5f, -5.0f,  0.0f, 1.0f, 0.0f,  0.0f,  1.0f,
 
-			5.0f, -0.5f,  5.0f,  0.0f, 1.0f, 0.0f,  1.0f,  0.0f,
-			-5.0f, -0.5f, -5.0f,  0.0f, 1.0f, 0.0f,   0.0f, 1.0f,
-			5.0f, -0.5f, -5.0f,  0.0f, 1.0f, 0.0f,  1.0f, 1.0f
+			 5.0f, -0.5f,  5.0f,  0.0f, 1.0f, 0.0f,  1.0f,  0.0f,
+			-5.0f, -0.5f, -5.0f,  0.0f, 1.0f, 0.0f,  0.0f,  1.0f,
+			 5.0f, -0.5f, -5.0f,  0.0f, 1.0f, 0.0f,  1.0f,  1.0f
 		};
 
 		glGenVertexArrays(1, &vao);
@@ -101,14 +102,16 @@ public:
 		glEnableVertexAttribArray(2);
 	}
 
-	//TODO:忘了FBO是干嘛的了
+	//FBO是用来存储ShadowMap(DepthMap)的
 	//设置离屏渲染帧缓冲(生成深度贴图)
+	//步骤：1.创建和绑定（FBO、深度纹理）；2.设置深度纹理的过滤方式；3.将纹理附加到帧缓冲
 	void InitFBOAndTexture(GLuint &depthMapFBO,GLuint &depthMap,int width,int height) {
-		glGenFramebuffers(1, &depthMapFBO);
-		glGenTextures(1, &depthMap);
+		glGenFramebuffers(1, &depthMapFBO); //要自己定义帧缓存，不使用OpenGL的默认缓冲
+		glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+		glGenTextures(1, &depthMap); //创建一张纹理，用于关联FBO
 		glBindTexture(GL_TEXTURE_2D, depthMap);
-		//TODO:开始不懂了
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, width, height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, width, height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL); //GL_DEPTH_COMPONENT：深度缓冲的储存格式
 		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -117,23 +120,25 @@ public:
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
 		float borderColor[] = { 1.0, 1.0, 1.0, 1.0 };
-		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);
-		glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor); //TODO:这句还没懂
+
+		//将纹理附加到帧缓冲上
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthMap, 0);
-		glDrawBuffer(GL_NONE);
-		glReadBuffer(GL_NONE);
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		//帧缓冲对象不是完全不包含颜色缓冲的，所以我们需要显式告诉 OpenGL 我们不适用任何颜色数据进行渲染。调用 glDrawBuffer 和glReadBuffer 把读和绘制缓冲设置为 GL_NONE 来做这件事
+		glDrawBuffer(GL_NONE);//指定写入缓冲区，并不影响深度、模板缓冲区。GL_NONE:不写入颜色缓冲区，如果存在片段着色器则不启用该着色器
+		glReadBuffer(GL_NONE);//确定颜色缓冲区的来源
+		glBindFramebuffer(GL_FRAMEBUFFER, 0); //用回OpenGL的默认帧缓冲
 	}
 
 	void Render(Shader &cubeShader,Shader &shadowMapShader,Shader &debugQuadShader, GLuint &cubeVAO,GLuint &planeVAO,GLuint &depthFBO,GLuint &depthMap, Camera &camera, mat4 &lightPV,vec3 &lightPos,
 		unsigned int &diffuseMap,unsigned int &floor,int shadowW,int shadowH,float screenW,float screenH,float currentFrame) {
 		
-		glBindFramebuffer(GL_FRAMEBUFFER, depthFBO);
-		glViewport(0, 0, shadowW, shadowH);
+		glBindFramebuffer(GL_FRAMEBUFFER, depthFBO); //更换帧缓冲
+		glViewport(0, 0, shadowW, shadowH); //更换为光源视口
 		glClear(GL_DEPTH_BUFFER_BIT);
-		shadowMapShader.Use();
-		shadowMapShader.SetMat4("lightPV", lightPV);
-		DrawSence(shadowMapShader, cubeVAO, planeVAO, currentFrame, diffuseMap, floor);
+		shadowMapShader.Use(); 
+		shadowMapShader.SetMat4("lightPV", lightPV); //输入视角
+		DrawSence(shadowMapShader, cubeVAO, planeVAO, currentFrame, diffuseMap, floor); //形成深度贴图，换了这个带深度纹理附件的帧缓冲，会自动将深度绘制到depthMap
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 		// 清除颜色和深度缓冲
@@ -165,10 +170,10 @@ public:
 
 private:
 	void DrawSence(Shader &shader, GLuint &cubeVAO, GLuint &planeVAO, float currentFrame, unsigned int textureID1, unsigned int textureID2) {
-		// 画地板
-		glBindVertexArray(planeVAO);
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, textureID2);
+		// 画地板
+		glBindVertexArray(planeVAO);
 		mat4 model = mat4(1.0f);
 		shader.SetMat4("model", model);
 		glDrawArrays(GL_TRIANGLES, 0, 6);

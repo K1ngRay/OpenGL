@@ -163,11 +163,11 @@ public:
 
 		glActiveTexture(GL_TEXTURE0); //激活的标识为0纹理单元
 		glBindTexture(GL_TEXTURE_2D, texture);
-		withoutShader.SetInt("materialTex", 0); //设置为0，与GL_TEXTURE0关联，从而使texture与materialTex关联
+		//withoutShader.SetInt("materialTex", 0); //设置为0，与GL_TEXTURE0关联，从而使texture与materialTex关联
 
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, normal);
-		withoutShader.SetInt("normalTex", 1);
+		//withoutShader.SetInt("normalTex", 1);
 
 		glBindVertexArray(withoutVAO);
 		glDrawArrays(GL_TRIANGLES, 0, 36); //TODO:为甚是36
@@ -191,13 +191,14 @@ public:
 		withShader.SetVec3("specularLight", specularLight);
 
 		//传入正常纹理和法线贴图 
-		glActiveTexture(GL_TEXTURE0);
+		glActiveTexture(GL_TEXTURE2);
 		glBindTexture(GL_TEXTURE_2D, texture);
-		withShader.SetInt("materialTex", 0);
+		//withShader.SetInt("materialTex", 0);
 
-		glActiveTexture(GL_TEXTURE1);
+		glActiveTexture(GL_TEXTURE3);
 		glBindTexture(GL_TEXTURE_2D, normal);
-		withShader.SetInt("normalTex", 1);
+		std::cout << glGetError() << "normal" << std::endl;
+		//withShader.SetInt("normalTex", 1);
 
 		glBindVertexArray(withVAO);
 		glDrawArrays(GL_TRIANGLES, 0, 36);

@@ -220,7 +220,7 @@ public:
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 		glBindVertexArray(0); //解绑
 
-		//TODO：没看懂，估摸是因为片元着色器的xyww/w，要让w/w可以显示出来，又不想把天空盒的深度写进缓冲区
+		//没看懂，估摸是因为片元着色器的xyww/w，要让w/w可以显示出来，又不想把天空盒的深度写进缓冲区
 		glDepthFunc(GL_LEQUAL);//深度测试（初始值为GL_LESS）  输入的深度值小于或等于参考值，则通过
 		glDepthMask(GL_FALSE);//禁止向深度缓冲区写入数据
 

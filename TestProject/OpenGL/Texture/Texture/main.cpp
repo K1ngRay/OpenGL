@@ -1,4 +1,4 @@
-#define SWITCH_BIT 1
+#define SWITCH_BIT 2
 
 #include<iostream>
 #include<glad/glad.h>
@@ -127,11 +127,13 @@ int main() {
 	texture = Texture::LoadTextureFromFile("texture/cube_diffuse.jpg");
 	normal = Texture::LoadTextureFromFile("texture/cube_normal.jpg");
 
-	//TODO：为什么在这里直接赋值，而在Render里面不再继续赋值会显示不对呢？
-	//withoutShader.SetInt("materialTex", 0);
-	//withoutShader.SetInt("normalTex", 1);
-	//withShader.SetInt("materialTex", 2);
-	//withShader.SetInt("normalTex", 3);
+	withoutShader.Use();
+	withoutShader.SetInt("materialTex", 0);
+	withoutShader.SetInt("normalTex", 1);
+
+	withShader.Use(); //不能放到上面两行代码之上，不然会使上一个shader不正常
+	withShader.SetInt("materialTex", 2);
+	withShader.SetInt("normalTex", 3);
 #elif SWITCH_BIT  == 2
 	Shader cubeShader = Shader("DrawScene.vs", "DrawScene.fs");
 	if (!cubeShader.success) return 0;
@@ -141,30 +143,29 @@ int main() {
 	if (!debugQuadShader.success) return 0;
 
 	GLuint cubeVAO, cubeVBO, planeVAO, planeVBO, depthMapFBO, depthMap;
-	int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
+	int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024; //阴影的分辨率，调高可以防锯齿
 	vec2 resolution = vec2(SHADOW_WIDTH, SHADOW_HEIGHT);
-	project.InitFBOAndTexture(depthMapFBO, depthMap,resolution.x,resolution.y);
 	// 指定当前视口尺寸(前两个参数为左下角位置，后两个参数是渲染窗口宽、高)
 	glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	project.InitCubeVAO(cubeVAO, cubeVBO);
-	project.InitPlaneVAO(planeVAO, planeVBO); //TODO:可以和上面换换试试
+	project.InitPlaneVAO(planeVAO, planeVBO);
+	project.InitFBOAndTexture(depthMapFBO, depthMap,resolution.x,resolution.y);
 
 	//纹理载入
-	cubeShader.Use();//todo:如果没有glDrawArrays(),这个use()有什么用
+	cubeShader.Use();//如果不Use的话，不能给shader的uniform变量赋值
 	unsigned int diffuseMap, floor;
 	diffuseMap = Texture::LoadTextureFromFile("texture/container2.jpg");
 	floor = Texture::LoadTextureFromFile("texture/floor2.jpg");
 	cubeShader.SetInt("diffuseTexture", 0);
 	cubeShader.SetInt("depthMap", 1);
 
-	//TODO:下面开始神仙操作了
 	GLfloat near_plane = 1.0f, far_plane = 7.5f;  // 视锥的远近平面
-	vec3 lightPos(-3.0f, 4.0f, -1.0f);
+	vec3 lightPos(-3.0f, 4.0f, -1.0f); //设置光源的位置
 
-	mat4 lightProjection = ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);// 正交投影
+	mat4 lightProjection = ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);// 正交投影，因为将光源视为直射光
 	mat4 lightView = lookAt(lightPos, vec3(0.0f), vec3(0.0f, 1.0f, 0.0f));// 从光源的位置看向场景中央
-	mat4 lightPV = lightProjection * lightView; // 将世界空间变换到光空间
+	mat4 lightPV = lightProjection * lightView; // 创建光源空间，可以将世界空间变换到光空间
 
 	debugQuadShader.Use();
 	debugQuadShader.SetInt("shadowMap", 0);
