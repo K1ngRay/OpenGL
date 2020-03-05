@@ -5,5 +5,5 @@ uniform mat4 model;
 uniform mat4 lightPV;
 
 void main(){
-	gl_Position = lightPV * model * vec4(aPos,1.0);
+	gl_Position = lightPV * model * vec4(aPos,1.0); //把顶点转换到光源空间
 }

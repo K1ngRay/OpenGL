@@ -119,7 +119,7 @@ public:
 			-1.0f, -1.0f,  1.0f, -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
 			-1.0f,  1.0f,  1.0f, -1.0f,  0.0f,  0.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f,
 		};
-		//TODO:为什么有时候需要法线，有时候不用呢
+		//需要漫反射和高光反射等时，就需要物体平面的法向量
 		glGenVertexArrays(1, &vao);
 		glBindVertexArray(vao);
 
@@ -170,7 +170,7 @@ public:
 		//withoutShader.SetInt("normalTex", 1);
 
 		glBindVertexArray(withoutVAO);
-		glDrawArrays(GL_TRIANGLES, 0, 36); //TODO:为甚是36
+		glDrawArrays(GL_TRIANGLES, 0, 36); //36的意义是，cube有6个面，一个面由6个点构成两个三角片元，故需要一次绘制36个顶点
 		glBindVertexArray(0);
 
 

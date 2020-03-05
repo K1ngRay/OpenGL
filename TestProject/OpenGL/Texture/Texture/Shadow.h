@@ -73,7 +73,7 @@ public:
 		glEnableVertexAttribArray(2);
 	}
 	
-	//TODO:这个vao用在哪个shader的呀
+	//渲染cube时也渲染了地面
 	void InitPlaneVAO(GLuint &vao, GLuint &vbo) {
 		//地板数据
 		float planeVertices[] = {
@@ -117,10 +117,10 @@ public:
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		//解决采样越界
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER); //当去采样深度纹理，且采样范围超出纹理范围时，采样的颜色值使用边缘颜色
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
-		float borderColor[] = { 1.0, 1.0, 1.0, 1.0 };
-		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor); //TODO:这句还没懂
+		float borderColor[] = { 1.0, 1.0, 1.0, 1.0 }; //手动设置边缘颜色值
+		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor); //将OpenGL的边缘颜色值跟自己设置的颜色值关联
 
 		//将纹理附加到帧缓冲上
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthMap, 0);
@@ -133,6 +133,10 @@ public:
 	void Render(Shader &cubeShader,Shader &shadowMapShader,Shader &debugQuadShader, GLuint &cubeVAO,GLuint &planeVAO,GLuint &depthFBO,GLuint &depthMap, Camera &camera, mat4 &lightPV,vec3 &lightPos,
 		unsigned int &diffuseMap,unsigned int &floor,int shadowW,int shadowH,float screenW,float screenH,float currentFrame) {
 		
+		//1.切换到设定好的帧缓冲，
+		//  把所有顶点都转换到光源空间下进行渲染，
+		//  渲染后会将深度缓冲绘制到深度纹理，
+		//  切换成默认帧缓冲。
 		glBindFramebuffer(GL_FRAMEBUFFER, depthFBO); //更换帧缓冲
 		glViewport(0, 0, shadowW, shadowH); //更换为光源视口
 		glClear(GL_DEPTH_BUFFER_BIT);
@@ -190,7 +194,7 @@ private:
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		model = mat4(1.0f);
-		model = translate(model, vec3(2.0f, 0.0f, 1.0f));
+		model = translate(model, vec3(1.0f, 0.0f, 1.0f));
 		model = scale(model, vec3(0.3f));
 		shader.SetMat4("model", model);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -204,7 +208,7 @@ private:
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		model = mat4(1.0f);
-		model = translate(model, vec3(-1.0f, 0.0f, 2.0f));
+		model = translate(model, vec3(-1.0f, 0.5f, 1.0f));
 		model = rotate(model, radians(60.0f), normalize(vec3(1.0, 0.0, 1.0)));
 		model = scale(model, vec3(0.4f));
 		model = rotate(model, currentFrame, vec3(1.0f, 0.7f, -0.5f));

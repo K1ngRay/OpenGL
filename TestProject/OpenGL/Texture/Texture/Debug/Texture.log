@@ -1,7 +1,7 @@
 ﻿  main.cpp
 d:\opengl\testproject\opengl\texture\texture\texture.h(72): warning C4018: “<”: 有符号/无符号不匹配
 d:\opengl\testproject\opengl\texture\texture\skyboxmain.h(178): warning C4018: “<”: 有符号/无符号不匹配
-d:\opengl\testproject\opengl\texture\texture\shadow.h(145): warning C4244: “参数”: 从“float”转换到“GLsizei”，可能丢失数据
+d:\opengl\testproject\opengl\texture\texture\shadow.h(149): warning C4244: “参数”: 从“float”转换到“GLsizei”，可能丢失数据
 d:\opengl\testproject\opengl\texture\texture\main.cpp(153): warning C4244: “参数”: 从“T”转换到“int”，可能丢失数据
           with
           [
