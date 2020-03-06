@@ -7,6 +7,7 @@ unsigned int Texture::LoadTextureFromFile(const char* path)
 	glGenTextures(1, &texture_id);
 
 	int width, height, nr_channels;
+	stbi_set_flip_vertically_on_load(true);
 	unsigned char *data = stbi_load(path, &width, &height, &nr_channels, 0);
 	if (data)
 	{

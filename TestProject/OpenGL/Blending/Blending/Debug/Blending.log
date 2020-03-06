@@ -1,0 +1,13 @@
+﻿  main.cpp
+d:\opengl\testproject\opengl\blending\blending\main.cpp(10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+d:\opengl\testproject\opengl\blending\blending\main.cpp(191): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\blending\blending\main.cpp(195): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\blending\blending\main.cpp(197): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\blending\blending\main.cpp(297): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\blending\blending\main.cpp(298): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\blending\blending\main.cpp(302): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\blending\blending\main.cpp(303): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\blending\blending\main.cpp(305): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\blending\blending\main.cpp(306): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\opengl\testproject\opengl\blending\blending\main.cpp(313): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+  Blending.vcxproj -> D:\OpenGL\TestProject\OpenGL\Blending\Debug\Blending.exe
