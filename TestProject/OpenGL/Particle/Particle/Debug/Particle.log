@@ -1,0 +1,12 @@
+﻿  main.cpp
+d:\unity 3d\projects\opengl\testproject\opengl\particle\particle\main.cpp(167): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\particle\particle\main.cpp(170): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\particle\particle\main.cpp(185): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\particle\particle\main.cpp(357): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\particle\particle\main.cpp(358): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\particle\particle\main.cpp(362): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\particle\particle\main.cpp(363): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\particle\particle\main.cpp(365): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\particle\particle\main.cpp(366): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\unity 3d\projects\opengl\testproject\opengl\particle\particle\main.cpp(373): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+  Particle.vcxproj -> D:\Unity 3D\Projects\OpenGL\TestProject\OpenGL\Particle\Debug\Particle.exe
