@@ -19,10 +19,10 @@ void main(){
 	vec3 vertexPosition_worldspace = 
 		particleCenter_worldspace + 
 		CameraRight_worldspace * squareVertices.x * particleSize +
-		CameraUp_worldspace * squareVertices.y * particleSize; //TODO:要研究一下
+		CameraUp_worldspace * squareVertices.y * particleSize;
 
 	gl_Position = PV * vec4(vertexPosition_worldspace,1.0f);
 
-	UV = squareVertices.xy + vec2(0.5,0.5); //TODO:没看懂
-	particlecolor = color; //TODO:没看懂
+	UV = squareVertices.xy + vec2(0.5,0.5);
+	particlecolor = color;
 }
